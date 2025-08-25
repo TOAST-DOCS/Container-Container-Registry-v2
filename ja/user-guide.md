@@ -801,6 +801,13 @@ The following checks were performed on each of these signatures:
 > [参考]
 > 異なるキーで複数回署名する場合、すべてのキーで検証が可能です。
 
+### レジストリ設定
+レジストリごとに、署名のないイメージのデプロイをブロックできます。
+**Container > NHN Container Registry(NCR)** ページのレジストリ一覧からレジストリを選択し、**未認証イメージPull防止**の**変更**をクリックして設定します。
+> [参考]
+この設定を有効にすると、既存の署名なしイメージはpullがブロックされ、その署名なしイメージと同一の名前及びタグでイメージをアップロードする際に、アップロードが失敗することがあります。
+設定を有効にする前に既存のイメージへの署名を完了しておけば、その後も正常に使用できます。
+
 ## サービス利用権限
 
 サービス利用権限を利用してユーザーごとにNCRの使用を制御できます。
@@ -813,7 +820,7 @@ NCRサービスの利用権限は次のとおりです。
 | --- | --- |
 | Project Admin<br>Project Member<br>Service Admin | NHN Container Registry(NCR)サービスCreate(作成)、Read(読み取り)、Update(更新)、Delete(削除) |
 | Service Viewer | NHN Container Registry(NCR)サービスRead(読み取り) |
-| Image Uploader | NHN Container Registry(NCR)サービスRead(読み取り)、イメージCreate(作成)) |
+| Image Uploader | NHN Container Registry(NCR)サービスRead(読み取り)、イメージCreate(作成) |
 
 NCRサービス利用権限により使用できる機能は次のとおりです。
 

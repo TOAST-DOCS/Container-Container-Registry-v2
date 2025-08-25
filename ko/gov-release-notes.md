@@ -1,5 +1,11 @@
 ## Container > NHN Container Registry(NCR)  > 릴리스 노트
 
+### 2025. 08. 26.
+
+#### 기능 개선
+
+* 복제 대상 NCR에서 소스 레지스트리에 존재하는 이미지와 동일한 이미지를 식별하여 삭제할 수 있는 기능이 추가되었습니다.
+
 ### 2024. 12. 03.
 
 #### 기능 개선
@@ -11,9 +17,9 @@
 #### 기능 추가
 
 * NCR 서비스를 위한 Public API가 공개되었습니다.
-  * Public API에 대한 내용은 [API 가이드](/Container/NCR/ko/public-api-gov)를 참고하세요.
+    * Public API에 대한 내용은 [API 가이드](/Container/NCR/ko/public-api-gov)를 참고하세요.
 * Resource Watcher 서비스를 통해 레지스트리에서 발생하는 이벤트에 대한 알림을 받을 수 있습니다.
-  * 자세한 내용은 [Resource Watcher](/Governance%20&%20Audit/Resource%20Watcher/ko/overview-gov)를 참고하세요.
+    * 자세한 내용은 [Resource Watcher](/Governance%20&%20Audit/Resource%20Watcher/ko/overview-gov)를 참고하세요.
 * 이미지 서명 목록을 조회할 수 있습니다.
 
 #### 기능 개선
@@ -50,8 +56,8 @@
 #### 기능 추가
 
 * Private URI 기능 추가
-  * 인터넷 게이트웨이에 연결되지 않은 인스턴스에서 NCR 서비스를 이용할 수 있는 Private URI 기능을 추가하였습니다.
-  * 자세한 내용은 [Private URI 사용 가이드](./gov-user-guide/#private-uri)를 참고하십시오.
+    * 인터넷 게이트웨이에 연결되지 않은 인스턴스에서 NCR 서비스를 이용할 수 있는 Private URI 기능을 추가하였습니다.
+    * 자세한 내용은 [Private URI 사용 가이드](./gov-user-guide/#private-uri)를 참고하십시오.
 * 리전 간 복제 기능을 추가하였습니다.
 
 #### 기능 개선
