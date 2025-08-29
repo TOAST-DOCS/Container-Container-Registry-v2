@@ -1,11 +1,7 @@
 ## Container > NHN Container Registry(NCR) > API Guide
 
 This document explains the APIs required for configuring container registries.
-To use the APIs, you need a User Access Key and Secret Access Key. User Access Key and Secret Access Key are created on the Account > API Security Settings page of NHN Cloud Console.
 
-### API Common Request Information
-
-The service Appkey is required to use the API. The service Appkey is located in the <strong>URL and Appkey</strong> menu on the top of the console.
 The API domain is as follows.
 
 | Region | Domain |
@@ -13,12 +9,28 @@ The API domain is as follows.
 | Korea (Pangyo) region | https://kr1-ncr.api.nhncloudservice.com |
 | Korea (Pyeongchon) region | https://kr2-ncr.api.nhncloudservice.com |
 
-The API headers are as follows.
+### Common API Request Information
+
+To use the API, you will need the following information:
+
+* User Access Key와 Secret Access Key: create it on the Account > **API Security Setting** page of the NHN Cloud Console.
+
+* Token: create it by referring to [API call and authentication](/nhncloud/ko/public-api/api-authentication).
+
+* Service Appkey: you can check it from <strong>URL & Appkey</strong> menu at the top of the console.<br>
+
+The API headers are as follows if you use User Access Key and Secret Access Key:
 
 | Name | Type | Format | Required | Description |
 | --- | --- | --- | --- | --- |
 | X-TC-AUTHENTICATION-ID | Header | String | O | User Access Key |
 | X-TC-AUTHENTICATION-SECRET | Header | String | X (Required when created) | Secret Access Key |
+
+The API headers are as follows if you use tokens:
+
+| Name | Type | Format | Required | Description |
+| --- | --- | --- | --- | --- |
+| x-nhn-authorization | Header | String | O | Token |
 
 ### Common API Information
 
