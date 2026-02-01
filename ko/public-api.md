@@ -9,6 +9,7 @@ API 도메인은 다음과 같습니다.
 | --- | --- |
 | 한국(판교) 리전 | https://kr1-ncr.api.nhncloudservice.com |
 | 한국(평촌) 리전 | https://kr2-ncr.api.nhncloudservice.com |
+| 한국(평촌) 리전 | https://kr3-ncr.api.nhncloudservice.com |
 
 <a id="api-request-common"></a>
 ### API 요청 공통 정보
