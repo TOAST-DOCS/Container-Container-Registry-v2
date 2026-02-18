@@ -1,8 +1,10 @@
+<a id="ncr-api-guide"></a>
 ## Container > NHN Container Registry(NCR) > API Guide
 
 This document explains the APIs required for configuring container registries.
 To use the APIs, you need a User Access Key and Secret Access Key. User Access Key and Secret Access Key are created on the Account > API Security Settings page of NHN Cloud Console.
 
+<a id="api-request-common"></a>
 ### API Common Request Information
 
 The service Appkey is required to use the API. The service Appkey is located in the <strong>URL and Appkey</strong> menu on the top of the console.
@@ -12,6 +14,7 @@ The API domain is as follows.
 | --- | --- |
 | Korea (Pangyo) region | https://kr1-ncr.api.nhncloudservice.com |
 | Korea (Pyeongchon) region | https://kr2-ncr.api.nhncloudservice.com |
+| Korea (Pyeongchon) region | https://kr3-ncr.api.nhncloudservice.com |
 
 The API headers are as follows.
 
@@ -20,7 +23,8 @@ The API headers are as follows.
 | X-TC-AUTHENTICATION-ID | Header | String | O | User Access Key |
 | X-TC-AUTHENTICATION-SECRET | Header | String | X (Required when created) | Secret Access Key |
 
-### Common API Information
+<a id="api-response-common"></a>
+### API Common Response Information
 
 Returns <strong>200 OK</strong> for all API requests. For more information on the response results, see Response Body Header.
 
@@ -34,8 +38,10 @@ Returns <strong>200 OK</strong> for all API requests. For more information on th
 > [Caution] API responses may contain fields not described in this document. Those fields are for NHN Cloud internal usage and as such refrain from using them since they may be changed without prior notice.<br>
 > [Caution] Option fields not entered when creating a resource may not appear in the response body when queried.
 
+<a id="container-registry"></a>
 ## Container Registry
 
+<a id="registry-list"></a>
 ### View Container Registries
 
 List container registries.
@@ -117,6 +123,7 @@ Example
 }
 ```
 
+<a id="registry-get"></a>
 ### View Container Registry
 
 List container registry information.
@@ -196,6 +203,7 @@ Example
 }
 ```
 
+<a id="registry-create"></a>
 ### Create a container registry
 
 Create a container registry.
@@ -230,6 +238,7 @@ Example
 
 This API responds with common information.
 
+<a id="registry-delete"></a>
 ### Delete a container registry
 
 Deletes a container registry.
@@ -252,6 +261,7 @@ This API does not require a request body.
 
 This API responds with common information.
 
+<a id="registry-update"></a>
 ### Change a container registry
 
 Change a container registry.
@@ -298,6 +308,7 @@ Example
 
 This API responds with common information.
 
+<a id="image-protection-policy-list"></a>
 ### View Image Protection Policies
 
 Retrieves image protection policies.
@@ -357,6 +368,7 @@ Example
 }
 ```
 
+<a id="image-protection-policy-create"></a>
 ### Create an Image protection policy
 
 Creates an Image protection policy.
@@ -393,6 +405,7 @@ Example
 
 This API responds with common information.
 
+<a id="image-protection-policy-delete"></a>
 ### Delete an image protection policy
 
 Deletes an image protection policy.
@@ -415,6 +428,7 @@ This API does not require a request body.
 
 This API responds with common information.
 
+<a id="image-protection-policy-update"></a>
 ### Change an image protection policy
 
 Change an image protection policy.
@@ -458,6 +472,7 @@ Example
 
 This API responds with common information.
 
+<a id="image-cleanup-policy-list"></a>
 ### View image cleanup policies
 
 List image cleanup policies
@@ -528,6 +543,7 @@ Example
 }
 ```
 
+<a id="image-cleanup-policy-create"></a>
 ### Create an Image cleanup policy
 
 Create an Image cleanup policy.
@@ -575,6 +591,7 @@ Example
 
 This API responds with common information.
 
+<a id="image-cleanup-policy-delete"></a>
 ### Delete an image cleanup policy
 
 Deletes an image protection policy.
@@ -597,6 +614,7 @@ This API does not require a request body.
 
 This API responds with common information.
 
+<a id="image-cleanup-policy-update"></a>
 ### Change an image cleanup policy
 
 Change an image protection policy.
@@ -651,6 +669,7 @@ Example
 
 This API responds with common information.
 
+<a id="image-cleanup-history-list"></a>
 ### View image cleanup histories
 
 List image cleanup histories.
@@ -704,6 +723,7 @@ Example
 }
 ```
 
+<a id="image-cleanup-history-detail"></a>
 ### View Image Cleanup History Details
 
 Retrieves image cleanup history details.
@@ -760,6 +780,7 @@ Example
 }
 ```
 
+<a id="image-cleanup-history-log"></a>
 ### View image cleanup history logs
 
 Retrieve image cleanup history logs.
@@ -785,6 +806,7 @@ This API does not require a request body.
 | --- | --- | --- | --- | --- |
 | tasks | Body | String | O | Image cleanup log |
 
+<a id="image-cleanup-policy-run"></a>
 ### Execute an image cleanup policy
 
 Execute an image cleanup policy.
@@ -805,6 +827,7 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions
 
 This API responds with common information.
 
+<a id="image-cleanup-schedule-get"></a>
 ### View image cleanup cycle
 
 Retrieve image cleanup cycle.
@@ -849,6 +872,7 @@ Example
 }
 ```
 
+<a id="image-cleanup-schedule-create"></a>
 ### Create an Image cleanup cycle
 
 Create an Image cleanup cycle.
@@ -880,6 +904,7 @@ Example
 
 This API responds with common information.
 
+<a id="webhook-list"></a>
 ### View webhooks
 
 List webhooks.
@@ -952,6 +977,7 @@ Example
 }
 ```
 
+<a id="webhook-get"></a>
 ### View a Webhook
 
 Retrieve a Webhook.
@@ -1021,6 +1047,7 @@ Example
 }
 ```
 
+<a id="webhook-create"></a>
 ### Create a webhook
 
 Create a webhook.
@@ -1069,6 +1096,7 @@ Example
 
 This API responds with common information.
 
+<a id="webhook-delete"></a>
 ### Delete a webhook
 
 Delete a webhook.
@@ -1092,6 +1120,7 @@ This API does not require a request body.
 
 This API responds with common information.
 
+<a id="webhook-update"></a>
 ### Change a webhook
 
 Change a webhook.
@@ -1138,8 +1167,10 @@ Example
 
 This API responds with common information.
 
+<a id="container-image"></a>
 ## Container image
 
+<a id="image-list"></a>
 ### View container images
 
 List container images.
@@ -1196,6 +1227,7 @@ Example
 }
 ```
 
+<a id="image-get"></a>
 ### View a container Image
 
 Retrieve a container Image.
@@ -1249,6 +1281,7 @@ Example
 }
 ```
 
+<a id="image-delete"></a>
 ### Delete a container image
 
 Delete a container image.
@@ -1271,6 +1304,7 @@ This API does not require a request body.
 
 This API responds with common information.
 
+<a id="artifact-list"></a>
 ### View artifacts
 
 List artifacts.
@@ -1364,6 +1398,7 @@ Example
 }
 ```
 
+<a id="artifact-get"></a>
 ### View artifacts
 
 Retrieve artifacts.
@@ -1454,6 +1489,7 @@ Example
 }
 ```
 
+<a id="artifact-delete"></a>
 ### Delete an artifact
 
 Deletes an artifact.
@@ -1477,6 +1513,7 @@ This API does not require a request body.
 
 This API responds with common information.
 
+<a id="artifact-tag-list"></a>
 ### View artifact tags
 
 List artifact tags.
@@ -1532,6 +1569,7 @@ Example
 }
 ```
 
+<a id="artifact-tag-create"></a>
 ### Create an artifact tag
 
 Create an artifact tag.
@@ -1562,6 +1600,7 @@ Example
 
 This API responds with common information.
 
+<a id="artifact-tag-delete"></a>
 ### Delete an artifact tag
 
 Delete an artifact tag.
@@ -1586,6 +1625,7 @@ This API does not require a request body.
 
 This API responds with common information.
 
+<a id="artifact-vulnerability-get"></a>
 ### View artifact vulnerability information
 
 Retrieve artifact vulnerability information.
@@ -1668,6 +1708,7 @@ Example
 }
 ```
 
+<a id="artifact-scan"></a>
 ### Scan an artifact
 
 Scan an artifact.
@@ -1691,8 +1732,10 @@ This API does not require a request body.
 
 This API responds with common information.
 
+<a id="image-replication"></a>
 ## Replicate a Container Image
 
+<a id="replication-list"></a>
 ### View replications
 
 List replications
@@ -1806,6 +1849,7 @@ Example
 }
 ```
 
+<a id="replication-get"></a>
 ### View a replication
 
 Retrieve a replication.
@@ -1918,6 +1962,7 @@ Example
 }
 ```
 
+<a id="replication-create"></a>
 ### Create a replication
 
 Create a replication.
@@ -1969,6 +2014,7 @@ Example
 
 This API responds with common information.
 
+<a id="replication-delete"></a>
 ### Delete an replication
 
 Delete an replication.
@@ -1990,6 +2036,7 @@ This API does not require a request body.
 
 This API responds with common information.
 
+<a id="replication-update"></a>
 ### Change a replication
 
 Change a replication.
@@ -2044,6 +2091,7 @@ Example
 
 This API responds with common information.
 
+<a id="replication-history-list"></a>
 ### View replication histories
 
 List replication histories.
@@ -2098,6 +2146,7 @@ Example
 }
 ```
 
+<a id="replication-history-get"></a>
 ### View a replication history
 
 Retrieves a replication history.
@@ -2156,6 +2205,7 @@ Example
 }
 ```
 
+<a id="replication-history-log"></a>
 ### View replication history logs
 
 Retrieve replication history logs.
@@ -2180,6 +2230,7 @@ This API does not require a request body.
 | --- | --- | --- | --- | --- |
 | log | Body | String | O | Replication history log |
 
+<a id="replication-run"></a>
 ### Execute a replication
 
 Executes a replication.
@@ -2207,8 +2258,10 @@ Example
 
 This API responds with common information.
 
+<a id="image-cache"></a>
 ## Image Cache
 
+<a id="image-cache-list"></a>
 ### View Image Caches
 
 List Image Caches.
@@ -2275,6 +2328,7 @@ Example
 }
 ```
 
+<a id="image-cache-create"></a>
 ### Create an Image Cache
 
 Creates an Image Cache.
@@ -2314,6 +2368,7 @@ Example
 
 This API responds with common information.
 
+<a id="image-cache-delete"></a>
 ### Delete an Image Cache
 
 Delete an Image Cache.
@@ -2335,6 +2390,7 @@ This API does not require a request body.
 
 This API responds with common information.
 
+<a id="image-cache-update"></a>
 ### Change an Image Cache 
 
 Change an Image Cache.
@@ -2370,8 +2426,10 @@ Example
 
 This API responds with common information.
 
+<a id="scan-settings"></a>
 ## Scan Settings
 
+<a id="scan-schedule-get"></a>
 ### View the scan cycle
 
 Retrieve the scan cycle.
@@ -2423,6 +2481,7 @@ Example
 }
 ```
 
+<a id="scan-schedule-set"></a>
 ### Set the scan cycle
 
 Sets the scan cycle.
@@ -2455,6 +2514,7 @@ Example
 
 This API responds with common information.
 
+<a id="cve-allowlist-get"></a>
 ### View the common CVE allow list
 
 Retrieve the common CVE allow list.
@@ -2501,6 +2561,7 @@ Example
 }
 ```
 
+<a id="cve-allowlist-update"></a>
 ### Change the common CVE allow list
 
 Change the common CVE allow list.
