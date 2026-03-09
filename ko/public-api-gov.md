@@ -1,3 +1,4 @@
+<a id="ncr-api-guide"></a>
 ## Container > NHN Container Registry(NCR) > API 가이드
 
 컨테이너 레지스트리를 구성하기 위한 API를 기술합니다.
@@ -8,6 +9,7 @@ API 도메인은 다음과 같습니다.
 | --- | --- |
 | 한국(판교) 리전 | https://kr1-ncr.api.gov-nhncloudservice.com |
 
+<a id="api-request-common"></a>
 ### API 요청 공통 정보
 
 API를 사용하려면 다음과 같은 정보가 필요합니다.
@@ -31,6 +33,7 @@ User Access Key와 Secret Access Key를 사용하는 경우 API 헤더는 다음
 | --- | --- | --- | --- | --- |
 | x-nhn-authorization | Header | String | O | 토큰 |
 
+<a id="api-response-common"></a>
 ### API 응답 공통 정보
 
 모든 API 요청에 <strong>200 OK</strong>로 응답합니다. 자세한 응답 결과는 응답 본문 헤더를 참고합니다.
@@ -45,8 +48,10 @@ User Access Key와 Secret Access Key를 사용하는 경우 API 헤더는 다음
 > [주의] API 응답에 가이드에 명시되지 않은 필드가 나타날 수 있습니다. 이런 필드는 NHN Cloud 내부 용도로 사용되며 사전 공지 없이 변경될 수 있으므로 사용하지 않습니다.<br>
 > [주의] 리소스를 생성할 때 입력하지 않은 옵션 필드는 조회할 때 응답 본문에 나타나지 않을 수 있습니다.
 
+<a id="container-registry"></a>
 ## 컨테이너 레지스트리
 
+<a id="registry-list"></a>
 ### 컨테이너 레지스트리 목록 보기
 
 컨테이너 레지스트리 목록을 조회합니다.
@@ -126,6 +131,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries
 }
 ```
 
+<a id="registry-get"></a>
 ### 컨테이너 레지스트리 보기
 
 컨테이너 레지스트리 정보를 조회합니다.
@@ -203,6 +209,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}
 }
 ```
 
+<a id="registry-create"></a>
 ### 컨테이너 레지스트리 생성하기
 
 컨테이너 레지스트리를 생성합니다.
@@ -236,6 +243,7 @@ POST /ncr/v2.0/appkeys/{appKey}/registries
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="registry-delete"></a>
 ### 컨테이너 레지스트리 삭제하기
 
 컨테이너 레지스트리를 삭제합니다.
@@ -258,6 +266,7 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="registry-update"></a>
 ### 컨테이너 레지스트리 변경하기
 
 컨테이너 레지스트리를 변경합니다.
@@ -303,6 +312,7 @@ PUT /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="image-protection-policy-list"></a>
 ### 이미지 보호 정책 목록 보기
 
 이미지 보호 정책 목록을 조회합니다.
@@ -362,6 +372,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/immutabletagrules
 }
 ```
 
+<a id="image-protection-policy-create"></a>
 ### 이미지 보호 정책 생성하기
 
 이미지 보호 정책을 생성합니다.
@@ -398,6 +409,7 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/immutabletagrules
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="image-protection-policy-delete"></a>
 ### 이미지 보호 정책 삭제하기
 
 이미지 보호 정책을 삭제합니다.
@@ -420,6 +432,7 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/immutabletagrules/{rul
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="image-protection-policy-update"></a>
 ### 이미지 보호 정책 변경하기
 
 이미지 보호 정책을 변경합니다.
@@ -463,6 +476,7 @@ PUT /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/immutabletagrules/{rule_i
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="image-cleanup-policy-list"></a>
 ### 이미지 정리 정책 목록 보기
 
 이미지 정리 정책 목록을 조회합니다.
@@ -533,6 +547,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions
 }
 ```
 
+<a id="image-cleanup-policy-create"></a>
 ### 이미지 정리 정책 생성하기
 
 이미지 정리 정책을 생성합니다.
@@ -580,6 +595,7 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="image-cleanup-policy-delete"></a>
 ### 이미지 정리 정책 삭제하기
 
 이미지 보호 정책을 삭제합니다.
@@ -602,6 +618,7 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="image-cleanup-policy-update"></a>
 ### 이미지 정리 정책 변경하기
 
 이미지 보호 정책을 변경합니다.
@@ -656,6 +673,7 @@ PUT /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/{rule_id}
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="image-cleanup-history-list"></a>
 ### 이미지 정리 히스토리 목록 보기
 
 이미지 정리 히스토리 목록을 조회합니다.
@@ -709,6 +727,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions
 }
 ```
 
+<a id="image-cleanup-history-detail"></a>
 ### 이미지 정리 히스토리 상세 보기
 
 이미지 정리 히스토리를 조회합니다.
@@ -765,6 +784,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions/{ex
 }
 ```
 
+<a id="image-cleanup-history-log"></a>
 ### 이미지 정리 히스토리 로그 보기
 
 이미지 정리 히스토리 로그를 조회합니다.
@@ -790,6 +810,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions/{ex
 | --- | --- | --- | --- | --- |
 | tasks | Body | String | O | 이미지 정리 로그 |
 
+<a id="image-cleanup-policy-run"></a>
 ### 이미지 정리 정책 실행
 
 이미지 정리 정책을 실행합니다.
@@ -810,6 +831,7 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="image-cleanup-schedule-get"></a>
 ### 이미지 정리 주기 보기
 
 이미지 정리 주기를 조회합니다.
@@ -854,6 +876,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/schedule
 }
 ```
 
+<a id="image-cleanup-schedule-create"></a>
 ### 이미지 정리 주기 생성하기
 
 이미지 정리 주기를 생성합니다.
@@ -885,6 +908,7 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/schedule
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="webhook-list"></a>
 ### 웹훅 목록 보기
 
 웹훅 목록을 조회합니다.
@@ -957,6 +981,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}/webhook/policies
 }
 ```
 
+<a id="webhook-get"></a>
 ### 웹훅 보기
 
 웹훅을 조회합니다.
@@ -1026,6 +1051,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}/webhook/policies/{p
 }
 ```
 
+<a id="webhook-create"></a>
 ### 웹훅 생성하기
 
 웹훅을 생성합니다.
@@ -1074,6 +1100,7 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}/webhook/policies
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="webhook-delete"></a>
 ### 웹훅 삭제하기
 
 웹훅을 삭제합니다.
@@ -1097,6 +1124,7 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}/webhook/policies
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="webhook-update"></a>
 ### 웹훅 변경하기
 
 웹훅을 변경합니다.
@@ -1143,8 +1171,10 @@ PUT /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}/webhook/policies/{p
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="container-image"></a>
 ## 컨테이너 이미지
 
+<a id="image-list"></a>
 ### 컨테이너 이미지 목록 보기
 
 컨테이너 이미지 목록을 조회합니다.
@@ -1201,6 +1231,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images
 }
 ```
 
+<a id="image-get"></a>
 ### 컨테이너 이미지 보기
 
 컨테이너 이미지를 조회합니다.
@@ -1254,6 +1285,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}
 }
 ```
 
+<a id="image-delete"></a>
 ### 컨테이너 이미지 삭제하기
 
 컨테이너 이미지를 삭제합니다.
@@ -1276,6 +1308,7 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="artifact-list"></a>
 ### 아티팩트 목록 보기
 
 아티팩트 목록을 조회합니다.
@@ -1369,6 +1402,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/arti
 }
 ```
 
+<a id="artifact-get"></a>
 ### 아티팩트 보기
 
 아티팩트를 조회합니다.
@@ -1459,6 +1493,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/arti
 }
 ```
 
+<a id="artifact-delete"></a>
 ### 아티팩트 삭제하기
 
 아티팩트를 삭제합니다.
@@ -1483,6 +1518,7 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/a
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="artifact-tag-list"></a>
 ### 아티팩트 태그 목록 보기
 
 아티팩트 태그 목록을 조회합니다.
@@ -1538,6 +1574,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/arti
 }
 ```
 
+<a id="artifact-tag-create"></a>
 ### 아티팩트 태그 생성하기
 
 아티팩트 태그를 생성합니다.
@@ -1568,6 +1605,7 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/art
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="artifact-tag-delete"></a>
 ### 아티팩트 태그 삭제하기
 
 아티팩트 태그를 삭제합니다.
@@ -1592,6 +1630,7 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/a
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="artifact-vulnerability-get"></a>
 ### 아티팩트 취약점 정보 보기
 
 아티팩트 취약점 정보를 조회합니다.
@@ -1674,6 +1713,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/arti
 }
 ```
 
+<a id="artifact-scan"></a>
 ### 아티팩트 스캔하기
 
 아티팩트를 스캔합니다.
@@ -1697,8 +1737,10 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/art
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="image-replication"></a>
 ## 컨테이너 이미지 복제
 
+<a id="replication-list"></a>
 ### 복제 목록 보기
 
 복제 목록을 조회합니다.
@@ -1812,6 +1854,7 @@ GET /ncr/v2.0/appkeys/{appKey}/replications/policies
 }
 ```
 
+<a id="replication-get"></a>
 ### 복제 보기
 
 복제를 조회합니다.
@@ -1922,6 +1965,7 @@ GET /ncr/v2.0/appkeys/{appKey}/replications/policies/{policyId}
 }
 ```
 
+<a id="replication-create"></a>
 ### 복제 생성하기
 
 복제를 생성합니다.
@@ -1972,6 +2016,7 @@ POST /ncr/v2.0/appkeys/{appKey}/replications/policies
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="replication-delete"></a>
 ### 복제 삭제하기
 
 복제를 삭제합니다.
@@ -1993,6 +2038,7 @@ DELETE /ncr/v2.0/appkeys/{appKey}/replications/policies/{policyId}
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="replication-update"></a>
 ### 복제 변경하기
 
 복제를 변경합니다.
@@ -2046,6 +2092,7 @@ PUT /ncr/v2.0/appkeys/{appKey}/replications/policies/{policyId}
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="replication-history-list"></a>
 ### 복제 히스토리 목록 보기
 
 복제 히스토리 목록을 조회합니다.
@@ -2100,6 +2147,7 @@ GET /ncr/v2.0/appkeys/{appKey}/replications/executions
 }
 ```
 
+<a id="replication-history-get"></a>
 ### 복제 히스토리 보기
 
 복제 히스토리를 조회합니다.
@@ -2158,6 +2206,7 @@ GET /ncr/v2.0/appkeys/{appKey}/replications/executions/{executionId}/tasks
 }
 ```
 
+<a id="replication-history-log"></a>
 ### 복제 히스토리 로그 보기
 
 복제 히스토리 로그를 조회합니다.
@@ -2182,6 +2231,7 @@ GET /ncr/v2.0/appkeys/{appKey}/replications/executions/{executionId}/tasks/{task
 | --- | --- | --- | --- | --- |
 | log | Body | String | O | 복제 히스토리 로그 |
 
+<a id="replication-run"></a>
 ### 복제 실행하기
 
 복제를 실행합니다.
@@ -2209,8 +2259,10 @@ POST /ncr/v2.0/appkeys/{appKey}/replications/executions
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="image-cache"></a>
 ## 이미지 캐시
 
+<a id="image-cache-list"></a>
 ### 이미지 캐시 목록 보기
 
 이미지 캐시 목록을 조회합니다.
@@ -2277,6 +2329,7 @@ GET /ncr/v2.0/appkeys/{appKey}/endpoints
 }
 ```
 
+<a id="image-cache-create"></a>
 ### 이미지 캐시 생성하기
 
 이미지 캐시를 생성합니다
@@ -2316,6 +2369,7 @@ POST /ncr/v2.0/appkeys/{appKey}/endpoints
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="image-cache-delete"></a>
 ### 이미지 캐시 삭제하기
 
 이미지 캐시를 삭제합니다.
@@ -2337,6 +2391,7 @@ DELETE /ncr/v2.0/appkeys/{appKey}/endpoints/{endpointId}
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="image-cache-update"></a>
 ### 이미지 캐시 변경하기
 
 이미지 캐시를 변경합니다.
@@ -2372,8 +2427,10 @@ PUT /ncr/v2.0/appkeys/{appKey}/endpoints/{endpointId}
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="scan-settings"></a>
 ## 스캔 설정
 
+<a id="scan-schedule-get"></a>
 ### 스캔 주기 보기
 
 스캔 주기를 조회합니다.
@@ -2425,6 +2482,7 @@ GET /ncr/v2.0/appkeys/{appKey}/scanAll/schedule
 }
 ```
 
+<a id="scan-schedule-set"></a>
 ### 스캔 주기 설정하기
 
 스캔 주기를 설정합니다.
@@ -2457,6 +2515,7 @@ PUT /ncr/v2.0/appkeys/{appKey}/scanAll/schedule
 
 이 API는 공통 정보만 응답합니다.
 
+<a id="cve-allowlist-get"></a>
 ### 공통 CVE 허용 목록 보기
 
 공통 CVE 허용 목록을 조회합니다.
@@ -2503,6 +2562,7 @@ GET /ncr/v2.0/appkeys/{appKey}/CVEAllowlist
 }
 ```
 
+<a id="cve-allowlist-update"></a>
 ### 공통 CVE 허용 목록 변경하기
 
 공통 CVE 허용 목록을 변경합니다.
