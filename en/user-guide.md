@@ -741,6 +741,9 @@ You can verify the integrity of an image by signing the image in NCR and verifyi
 NCR provides the image signature feature by using the sigstore/cosign solution. To use the image trust feature, you must install the sigstore/cosign client.
 Refer to [sigstore/cosign](https://docs.sigstore.dev/cosign/system_config/installation/) to install the client.
 
+> [Caution]
+> Cosign v3.x is currently incompatible with NCR due to changes in how signatures are stored. To use the Image Trust feature, please use Cosign v2.x.
+
 **Windows**
 Downloand and install [Cosign for Windows](https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-windows-amd64.exe).
 
@@ -819,6 +822,14 @@ The following checks were performed on each of these signatures:
 
 > [Note]
 > You can verify with any key if you sign multiple times with different keys.
+
+### Registry Settings
+You can block the deployment of unsigned images per registry.
+From the registry list of **Container > NHN Container Registry(NCR)** page, select the registry and click **Change** from **Prevent Pull of Unauthenticated Image** to set up.
+
+> [Note]
+The pull of an unauthenticated image already uploaded will be blocked if you enable the setting. The upload may fail if you upload an image with the same name and tag as an unsigned image.
+If you have signed on to the existing image before enabling the setting, you can use it normally in the future.
 
 ## Service Permission
 
