@@ -12,13 +12,10 @@ API 도메인은 다음과 같습니다.
 <a id="api-request-common"></a>
 ### API 요청 공통 정보
 
-API를 사용하려면 다음과 같은 정보가 필요합니다.
+NHN Container Registry(NCR)은 API 호출 및 인증을 위한 인증 방법으로 User Access Key 토큰과 User Access Key를 지원합니다.
+User Access Key 토큰은 User Access Key를 기반으로 발급되는 Bearer 타입의 일시적 액세스 토큰으로, API 호출 시 인증/인가를 위해 사용합니다. User Access Key는 NHN Cloud 계정 또는 IAM 계정을 기반으로 발급되는 인증 키로, Secret Access Key와 함께 사용하여 API 요청에 대한 인증 수단으로 활용됩니다.
+각 인증 방법의 확인 및 사용에 대한 자세한 내용은 각각 [User Access Key 토큰](/nhncloud/ko/public-api/user-access-key-token-gov), [User Access Key](/nhncloud/ko/public-api/user-access-key-gov)를 참고하세요.
 
-* User Access Key와 Secret Access Key: NHN Cloud 콘솔의 계정 > **API 보안 설정** 페이지에서 생성합니다.
-
-* 토큰: [API 호출 및 인증](/nhncloud/ko/public-api/api-authentication-gov)을 참고하여 생성합니다.
-
-* 서비스 Appkey: 콘솔 상단 <strong>URL & Appkey</strong> 메뉴에서 확인이 가능합니다.<br>
 
 User Access Key와 Secret Access Key를 사용하는 경우 API 헤더는 다음과 같습니다.
 
