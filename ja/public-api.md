@@ -12,13 +12,9 @@ APIドメインは次のとおりです。
 
 ### APIリクエスト共通情報
 
-APIを使用するには、次の情報が必要です。
-
-* User Access KeyとSecret Access Key：NHN Cloudコンソールのアカウント > **APIセキュリティ設定**ページで作成します。
-
-* トークン：[API呼び出し及び認証](/nhncloud/ko/public-api/api-authentication)を参考にして作成します。
-
-* サービスAppkey：コンソール上部の<strong>URL & Appkey</strong> メニューで確認できます。<br>
+NHN Container Registry(NCR)は、API呼び出し時の認証方法として、User Access Keyトークン、User Access Keyをサポートしています。
+User Access Keyトークンは、User Access Keyに基づいて発行されるBearerタイプの一時的なアクセストークンです。User Access Keyは、NHN CloudアカウントまたはIAMアカウントに基づいて発行される認証キーであり、Secret Access Keyと共に使用してAPIリクエストに対する認証手段として利用されます。
+各認証方法の確認手順や使用方法の詳細は、それぞれ[User Access Keyトークン](/nhncloud/ja/public-api/user-access-key-token)、[User Access Key](/nhncloud/ja/public-api/user-access-key)をご参照ください。
 
 User Access KeyとSecret Access Keyを使用する場合のAPIヘッダは次のとおりです。
 
