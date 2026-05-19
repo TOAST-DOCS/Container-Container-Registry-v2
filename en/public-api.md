@@ -2,12 +2,7 @@
 ## Container > NHN Container Registry(NCR) > API Guide
 
 This document explains the APIs required for configuring container registries.
-To use the APIs, you need a User Access Key and Secret Access Key. User Access Key and Secret Access Key are created on the Account > API Security Settings page of NHN Cloud Console.
 
-<a id="api-request-common"></a>
-### API Common Request Information
-
-The service Appkey is required to use the API. The service Appkey is located in the <strong>URL and Appkey</strong> menu on the top of the console.
 The API domain is as follows.
 
 | Region | Domain |
@@ -16,12 +11,25 @@ The API domain is as follows.
 | Korea (Pyeongchon) region | https://kr2-ncr.api.nhncloudservice.com |
 | Korea (Gwangju) region | https://kr3-ncr.api.nhncloudservice.com |
 
-The API headers are as follows.
+<a id="api-request-common"></a>
+### Common API Request Information
+
+NHN Container Registry(NCR) supports User Access Key token and User Access Key as authentication methods for API calls.
+A User Access Key token is a temporary, Bearer-type access token issued from a User Access Key, used for authentication and authorization when calling the API. A User Access Key is an authentication key issued based on an NHN Cloud or IAM account. It is used in conjunction with a Secret Access Key to authenticate API requests.
+For more information on how to check and use each authentication method, see [User Access Key Token](/nhncloud/en/public-api/user-access-key-token) and [User Access Key](/nhncloud/en/public-api/user-access-key).
+
+The API headers are as follows if you use User Access Key and Secret Access Key:
 
 | Name | Type | Format | Required | Description |
 | --- | --- | --- | --- | --- |
 | X-TC-AUTHENTICATION-ID | Header | String | O | User Access Key |
 | X-TC-AUTHENTICATION-SECRET | Header | String | X (Required when created) | Secret Access Key |
+
+The API headers are as follows if you use tokens:
+
+| Name | Type | Format | Required | Description |
+| --- | --- | --- | --- | --- |
+| x-nhn-authorization | Header | String | O | Token |
 
 <a id="api-response-common"></a>
 ### API Common Response Information
