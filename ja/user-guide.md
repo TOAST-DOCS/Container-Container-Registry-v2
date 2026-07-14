@@ -1,15 +1,23 @@
-## Container > NHN Container Registry(NCR) > 使用ガイド
+<!-- pre-align:aligned sig=3643d931a641 -->
 
-## 事前準備
-### Dockerインストール
+<a id="container-nhn-container-registry-ncr-user-guide"></a>
+## Container > NHN Container Registry(NCR) > 使用ガイド { #container-nhn-container-registry-ncr-user-guide }
+
+<a id="prerequisites"></a>
+## 事前準備 { #prerequisites }
+<a id="install-docker"></a>
+### Dockerインストール { #install-docker }
 NHN Container Registry（以下、NCR) サービスは、Dockerコンテナイメージを保存して配布するためのサービスです。コンテナイメージを扱うにはまずユーザーの環境にDockerをインストールする必要があります。
 
+<a id="install-docker-windows"></a>
 #### Windows
 Docker Hubから[Docker Desktop for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)をダウンロードしてインストールします。
 
+<a id="install-docker-macos"></a>
 #### macOS
 Docker Hubから[Docker Desktop for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac)をダウンロードしてインストールします。
 
+<a id="install-docker-linux"></a>
 #### Linux
 Linuxディストリビューションによってインストールプロセスが異なります。CentOS 7、Ubuntu以外のディストリビューションを使用している場合は[Install Docker Engine](https://docs.docker.com/engine/install)を確認してください。
 
@@ -58,7 +66,8 @@ $ sudo systemctl start docker
 
 
 
-### User Access Key/Secret Keyの確認
+<a id="check-the-user-access-key-and-secret-key"></a>
+### User Access Key/Secret Keyの確認 { #check-the-user-access-key-and-secret-key }
 
 Dockerコマンドラインツールを利用してユーザーレジストリにログインするには、User Access KeyとSecret Keyが必要です。 User Access KeyとSecret KeyはNHN Cloud Consoleでアカウント > **APIセキュリティ設定**で作成できます。
 
@@ -70,19 +79,23 @@ Dockerコマンドラインツールを利用してユーザーレジストリ�
 
 
 
-## コンテナレジストリの使用
+<a id="use-a-container-registry"></a>
+## コンテナレジストリの使用 { #use-a-container-registry }
 
 > [参考]
 > メンバー権限のユーザーはコンテナイメージの保存、削除機能は使用できません。
 
-### ユーザーレジストリの作成
+<a id="create-a-user-registry"></a>
+### ユーザーレジストリの作成 { #create-a-user-registry }
 
 レジストリサービスを初めて使用するには、まずNHN Cloud Consoleでレジストリを作成する必要があります。**Container > NHN Container Registry(NCR) > Management**サービスページに移動して**レジストリ作成**ボタンをクリックします。作成するレジストリの名前を入力したら、確認ボタンをクリックしてレジストリを作成できます。
 
-### ユーザーレジストリアドレスの確認
+<a id="check-the-user-registry-address"></a>
+### ユーザーレジストリアドレスの確認 { #check-the-user-registry-address }
 作成したレジストリのアドレスは**Container > NHN Container Registry(NCR) > Management**サービスページのレジストリリストで確認できます。
 
-### ユーザーレジストリログイン
+<a id="log-in-to-the-user-registry"></a>
+### ユーザーレジストリログイン { #log-in-to-the-user-registry }
 コンテナイメージを保存したり、任意の環境にインポートするには、Dockerコマンドラインツールを利用する必要があります。Dockerコマンドラインツールを利用してユーザーレジストリにアクセスするにはログインする必要があります。 `docker login`コマンドを使用した後、`Username`にはNHN CloudユーザーアカウントのUser Access Keyを、`Password`にはSecert Keyをそれぞれ入力します。
 
 ```bash
@@ -97,7 +110,8 @@ Login Succeeded
 
 
 
-### コンテナイメージの保存(Push)
+<a id="store-a-container-image-push"></a>
+### コンテナイメージの保存(Push) { #store-a-container-image-push }
 
 コンテナイメージをユーザーレジストリに保存するには、アップロードするイメージの名前をユーザーレジストリアドレスを含むイメージ(Image)名とタグ(Tag)形式に設定する必要があります。Dockerコマンドラインツールの**tag**コマンドを利用して指定できます。
 
@@ -131,7 +145,8 @@ c8be1b8f4d60: Pushed
 18.04: digest: sha256:e5dd9dbb37df5b731a6688fa49f4003359f6f126958c9c928f937bec69836320 size: 1152
 ```
 
-### コンテナイメージ照会
+<a id="view-a-container-image"></a>
+### コンテナイメージ照会 { #view-a-container-image }
 保存されたコンテナイメージは、NHN Cloud Consoleで照会できます。
 
 * イメージリスト
@@ -144,7 +159,8 @@ c8be1b8f4d60: Pushed
 * タグリスト
 アーティファクトリストでアーティファクトをクリックすると、選択したアーティファクトに指定されたタグリストを照会できます。新しくタグを作成したり、タグを検索して削除できます。
 
-### コンテナイメージのインポート(Pull)
+<a id="download-a-container-image-pull"></a>
+### コンテナイメージのインポート(Pull) { #download-a-container-image-pull }
 Dockerコマンドラインツールの**pull**コマンドを使用してイメージをインポートできます。これを行うには、NHN Cloud Consoleでインポートするイメージの情報を確認する必要があります。
 
 ```bash
@@ -168,10 +184,12 @@ REPOSITORY                                                     TAG     IMAGE ID 
 example-kr1-registry.container.nhncloud.com/registry/ubuntu   18.04   4e5021d210f6    12 days ago     64.2MB
 ```
 
-### Helm chart使用
+<a id="use-helm-chart"></a>
+### Helm chart使用 { #use-helm-chart }
 
 NCRでHelm chartを管理することができます。Helm chartを保存したり、希望の環境にインポートするには、Helmコマンドラインツールを利用する必要があります。Helmコマンドラインツールのバージョンは最低3.8.0以上でなければなりません。
 
+<a id="use-helm-chart-log-in-to-the-user-registry"></a>
 #### ユーザーレジストリログイン
 
 Helmコマンドラインツールを利用してユーザーレジストリにアクセスするにはログインが必要です。helm registry login`コマンドを使用した後、 `Username`にはNHN CloudユーザーアカウントのUser Access Keyを、 `Password`にはSecret Keyをそれぞれ入力します。
@@ -183,6 +201,7 @@ Password: {NHN CloudユーザーアカウントUser Secret Key}
 Login Succeeded
 ```
 
+<a id="use-helm-chart-save-helm-chart-push"></a>
 #### Helm chart保存(Push)
 
 Helm chartをレジストリに保存するには、アップロードするチャートを圧縮してローカルに保存する必要があります。Helm chartのrootディレクトリにディレクトリを変更した後、**package**コマンドを使ってチャートをローカルに保存します。`Chart.yaml`に指定された名前とバージョンで保存されます。
@@ -210,6 +229,7 @@ Pushed: example-kr1-registry.container.nhncloud.com/registry/helm:0.1.0
 Digest: sha256:628760743a9642f0edd5f4dc30b598827c2c4cde4976ebe9eeb2d3e827ca7e99
 ```
 
+<a id="use-helm-chart-install-helm-chart"></a>
 #### Helm chartインストール(Install)
 
 Helmコマンドラインツールの**install**コマンドを使ってチャートをKubernetes環境に配布できます。このため、NCR Consoleでインストールするチャートの情報を確認する必要があります。
@@ -224,6 +244,7 @@ helm install {配布名} oci://{ユーザーレジストリアドレス}/{チャ
 $ helm install myrelease oci://example-kr1-registry.container.nhncloud.com/registry/helm --version 0.1.0
 ```
 
+<a id="use-helm-chart-import-helm-chart-push"></a>
 #### Helm chart取得(Pull)
 
 Helmコマンドラインツールの**pull**コマンドを使ってチャートを圧縮ファイルでインポートできます。このため、NCR Consoleでインポートするチャートの情報を確認する必要があります。
@@ -240,11 +261,13 @@ Pulled: example-kr1-registry.container.nhncloud.com/registry/helm:0.1.0
 Digest: sha256:628760743a9642f0edd5f4dc30b598827c2c4cde4976ebe9eeb2d3e827ca7e99
 ```
 
-### OCI Artifact使用
+<a id="use-oci-artifact"></a>
+### OCI Artifact使用 { #use-oci-artifact }
 
 ORASコマンドラインツールを使用して任意のファイルをOCI Artifactとしてレジストリに保存できます。
 [ORAS installation](https://oras.land/docs/installation)を参考にしてORASコマンドラインツールをインストールします。ORASコマンドラインツールの詳しい使い方は[ORAS docs](https://oras.land/docs/)を参照してください。
 
+<a id="use-oci-artifact-log-in-to-the-user-registry"></a>
 #### ユーザーレジストリログイン
 
 ORASコマンドラインツールを使ってユーザーレジストリにアクセスするにはログインが必要です。oras login`コマンドを使用した後、 `Username`にはNHN CloudユーザーアカウントのUser Access Keyを、`Password`にはSecret Keyをそれぞれ入力します。
@@ -256,6 +279,7 @@ Password: {NHN CloudユーザーアカウントUser Secret Key}
 Login Succeeded
 ```
 
+<a id="use-oci-artifact-save-oci-artifact-push"></a>
 #### OCI Artifact保存(Push)
 
 レジストリに保存する任意のファイルを作成します。
@@ -280,6 +304,7 @@ Pushed [registry] example-kr1-registry.container.nhncloud.com/registry/hello-art
 Digest: sha256:fbd2f5fd108cc75e7a805d9f21ab3c2ad8810c55c4e6581b1e1b3f3ea111d4fc
 ```
 
+<a id="use-oci-artifact-import-oci-artifact-pull"></a>
 #### OCI Artifact取得(Pull)
 
 ORASコマンドラインツールの**pull**コマンドを使用してファイルをインポートできます。このため、NCR Consoleでインポートするチャートの情報を確認する必要があります。
@@ -298,31 +323,38 @@ Pulled [registry] example-kr1-registry.container.nhncloud.com/registry/hello-art
 Digest: sha256:a6886dfd78cfee5412d410d5ad09129efea9fe7da9c911dd976e8e77808a95b0
 ```
 
-## コンテナレジストリ管理
+<a id="manage-a-container-registry"></a>
+## コンテナレジストリ管理 { #manage-a-container-registry }
 
-### コンテナイメージおよびアーティファクト削除
+<a id="delete-container-images-and-artifacts"></a>
+### コンテナイメージおよびアーティファクト削除 { #delete-container-images-and-artifacts }
 
 レジストリに保存されたイメージを今後使用しない場合は、NHN Cloud Consoleから削除できます。イメージを削除するには、イメージリスト表示画面で削除するイメージを選択した後、**イメージ削除**ボタンをクリックします。同様にアーティファクトを削除するにはアーティファクトリスト表示画面で削除するアーティファクトを選択した後、**アーティファクト削除**ボタンをクリックします。
 
-### コンテナイメージタグの作成
+<a id="create-a-container-image-tag"></a>
+### コンテナイメージタグの作成 { #create-a-container-image-tag }
 
 Dockerコマンドラインツールを使わずにNHN Cloud Consoleからタグを作成できます。アーティファクトリスト表示画面でタグを追加するアーティファクトを選択した後、下部の詳細情報表示画面で**タグ**タブを選択します。すると現在選択したアーティファクトに指定されたタグリストを表示できます。ここで**タグ作成**ボタンをクリックすると**タグ作成ポップアップ**ウィンドウが表示され、タグ名を入力して新しいタグを作成できます。
 
-### コンテナイメージタグの削除
+<a id="delete-a-container-image-tag"></a>
+### コンテナイメージタグの削除 { #delete-a-container-image-tag }
 
 使用しないタグがある場合は、同様にNHN Cloud Consoleでタグを削除できます。タグを作成する時と同様に、タグリスト表示画面に移動して削除するタグを選択します。タグが多くてタグリストにすぐに表示されない場合は、タグ検索機能を活用して削除したいタグを検索できます。削除するタグを選択して**タグ削除**ボタンをクリックすると選択したタグを削除できます。
 
-### レジストリWebフック設定
+<a id="registry-webhook-settings"></a>
+### レジストリWebフック設定 { #registry-webhook-settings }
 
 イメージ変更事項通知を受け取るには、NCR ConsoleでWebフック設定を登録します。 Webフックを設定するレジストリを選択し、下部の詳細情報表示画面で**Webフック**タブを選択します。**Webフック作成**ボタンをクリックします。**Webフック作成**ダイアログボックスが現れたらプロパティを指定した後、**確認**ボタンをクリックします。現在はHTTP(S)呼び出しとSlackメッセンジャーを利用した通知設定をサポートします。
 
 
-### コンテナイメージ整理
+<a id="container-image-cleanup"></a>
+### コンテナイメージ整理 { #container-image-cleanup }
 
 レジストリに保存されたイメージとアーティファクトをポリシーに基づいて整理(削除)するようにNCR Consoleで設定できます。イメージ整理ポリシーを使用するには設定するレジストリを選択し、下部の詳細情報表示画面で**イメージ整理**タブをクリックします。
 
 > [注意]
 > イメージ整理と保護に同じポリシーが設定されている場合、イメージ保護ポリシーが優先的に処理され、イメージ整理機能が正常に動作しない可能性があります。
+<a id="container-image-cleanup-image-cleanup-policy-setting"></a>
 #### イメージ整理ポリシー設定
 
 **ポリシー設定**タブで**整理ポリシー追加**ボタンをクリックすると**整理ポリシー追加**ダイアログボックスが表示され、イメージ、タグ、ポリシーを入力して新しい整理ポリシーを設定できます。
@@ -338,20 +370,24 @@ Dockerコマンドラインツールを使わずにNHN Cloud Consoleからタグ
 > レジストリにイメージ、タグ、ポリシーがすべて同じ整理ポリシーを重複して追加できません。
 >
 > `Push/Pullした日付がNのアーティファクトを除外して整理`ポリシーはPush/Pullを行ってからN日を超過したアーティファクトを削除します。
+<a id="container-image-cleanup-delete-image-cleanup-policy"></a>
 #### イメージ整理ポリシー削除
 
 **ポリシー設定**タブ下部で削除する整理ポリシーを選択し、**整理ポリシー削除**ボタンをクリックして削除できます。
 
+<a id="container-image-cleanup-test-run"></a>
 #### テスト実行
 
 **ポリシー設定**タブで**テスト実行**ボタンをクリックして設定したイメージ整理ポリシーをテストできます。
 テスト実行結果は**ヒストリー照会**タブで確認できます。
 
+<a id="container-image-cleanup-run-immediately"></a>
 #### いま実行
 
 **ポリシー設定**タブで**いま実行** ボタンをクリックして設定したイメージ整理ポリシーを手動で実行します。
 実行結果は **ヒストリー照会** タブで確認できます。
 
+<a id="container-image-cleanup-cleanup-cycle-setting"></a>
 #### 整理サイクル設定
 
 イメージ整理ポリシーを定期的に自動実行するように設定できます。
@@ -368,15 +404,18 @@ Dockerコマンドラインツールを使わずにNHN Cloud Consoleからタグ
 > [参考]
 > Cron式で使用する時間帯は協定世界時(UTC)です。
 
+<a id="container-image-cleanup-view-history"></a>
 #### ヒストリー照会
 
 **ヒストリー照会** タブでイメージ整理ヒストリーを照会できます。
 下部の照会された情報をクリックしてヒストリー詳細情報を確認できます。
 
-### コンテナイメージ保護
+<a id="container-image-protection"></a>
+### コンテナイメージ保護 { #container-image-protection }
 
 レジストリに保存されたイメージとアーティファクトが削除/変更されないようにNCR Consoleでイメージ保護機能を設定できます。イメージ保護機能を使用するには設定するレジストリを選択し、下部の詳細情報表示画面で **イメージ保護** タブをクリックします。
 
+<a id="container-image-protection-add-image-protection-policy"></a>
 #### イメージ保護ポリシー追加
 
 **保護ポリシー追加**ボタンをクリックすると **保護ポリシー追加**ダイアログボックスが表示され、保護ポリシーを入力して新しい保護ポリシーを設定できます。
@@ -384,12 +423,14 @@ Dockerコマンドラインツールを使わずにNHN Cloud Consoleからタグ
 
 > [参考]
 > レジストリにイメージとタグが同じ保護ポリシーを重複して追加できません。
+<a id="container-image-protection-delete-image-protection-policy"></a>
 #### イメージ保護ポリシー削除
 
 **イメージ保護** タブ下部で削除する保護ポリシーを選択し、**保護ポリシー削除**ボタンをクリックして削除できます。
 
 <span id="public-uri"></span>
-## Public URIの使用
+<a id="use-public-uri"></a>
+## Public URIの使用 { #use-public-uri }
 Public URIは外部からNCRにアクセスできるように提供するアドレスです。レジストリを作成する時、Public URIの使用有無を設定することで、レジストリへのアクセスを制御できます。Public URIを使用することで、外部システムやサービスでレジストリのイメージを活用できるようになります。
 
 Public URIを使用しないように設定すると、レジストリは外部からアクセスできないように制限されます。この設定は、レジストリへのアクセスをNHN CloudのVPCネットワークに制限し、外部からの無断ダウンロードやアップロードの試みを防ぎ、セキュリティを強化します。
@@ -398,7 +439,8 @@ Public URIを使用しないように設定すると、レジストリは外部�
 > Public URIを使用しない設定にすると、外部からレジストリに保存された画像にアクセスできなくなります。設定を変更する際は、周辺システムやサービスに影響を与える可能性があるため、変更前に十分な検証とテストを行う必要があります。
 
 <span id="private-uri"></span>
-## Private URI使用
+<a id="use-private-uri"></a>
+## Private URI使用 { #use-private-uri }
 Private URIはNHN CloudのVPCネットワーク内で使用できるNCRアドレスです。セキュリティを強化するためにインターネットゲートウェイに接続せずに外部ネットワークを切断したインスタンスでNCRサービスを使用したい場合はPrivate URI機能を活用できます。
 
 > [参考]
@@ -410,17 +452,20 @@ Private URIはNHN CloudのVPCネットワーク内で使用できるNCRアドレ
 > [参考]
 > インスタンス、サービスゲートウェイ、 Object StorageとNCRはすべて同じリージョンを使用する必要があります。
 
-### NCRサービスゲートウェイの作成
+<a id="create-an-ncr-service-gateway"></a>
+### NCRサービスゲートウェイの作成 { #create-an-ncr-service-gateway }
 **Network > Service Gateway**ページに移動し、**サービスゲートウェイの作成**をクリックします。作成したいサービスゲートウェイの**名前**、**VPC**、**サブネット**を入力し、**サービス**を**NCR**に選択して**確認**をクリックするとNCRサービスゲートウェイが作成されます。
 ![ncr_c001_20220927](https://static.toastoven.net/prod_ncr/20220927/ncr_ko_c001.png)
 
-### Object Storageサービスゲートウェイの作成
+<a id="create-an-object-storage-service-gateway"></a>
+### Object Storageサービスゲートウェイの作成 { #create-an-object-storage-service-gateway }
 NCRでPrivate URIを利用してイメージをインポートするには、Object Storageのサービスゲートウェイを作成する必要があります。NCRはObject Storageを使用してイメージ階層を保存するため、サービスゲートウェイが必要です。イメージをダウンロードする時もNCRにアクセスしてイメージマニフェストをインポートし、Object Storageにアクセスして実際のイメージレイヤーをダウンロードします。
 
 **Network > Service Gateway**ページに移動して**サービスゲートウェイの作成**をクリックします。作成したいサービスゲートウェイの**名前**、**VPC**、**サブネット**を入力し、**サービス**を**Object Storage**に選択して**確認**をクリックするとObject Storageサービスゲートウェイが作成されます。
 ![ncr_c002_20220927](https://static.toastoven.net/prod_ncr/20220927/ncr_ko_c005.png)
 
-### ホスト登録
+<a id="register-host"></a>
+### ホスト登録 { #register-host }
 インターネットゲートウェイに接続していないインスタンスでPrivate URIを利用してNCRレジストリを使用できるように、ホストファイルにドメインとIPを設定する必要があります。
 インスタンスでPrivate EndpointのIPを見つけるためにホストファイルにNCRサービスゲートウェイIPアドレスとNCR Private Endpoint, Object StorageサービスゲートウェイIPアドレスとObject Storageドメインを入力します。
 
@@ -451,7 +496,8 @@ Private Endpoint: private-example-kr1-registry.container.nhncloud.com
 ```
 
 
-### Private URIによるレジストリ作業
+<a id="registry-work-via-private-uri"></a>
+### Private URIによるレジストリ作業 { #registry-work-via-private-uri }
 インスタンスに接続し、`docker login`コマンドを実行してレジストリにログインします。インスタンス構成によっては、次のコマンドに`sudo`を付ける必要があります。
 ```shell
 $ docker login {ユーザーPrivateレジストリアドレス}
@@ -491,7 +537,8 @@ example-kr1-registry.container.nhncloud.com/hello-world/ubuntu   18.04   4e5021d
 ```
 
 
-## コンテナイメージの複製
+<a id="replicate-a-container-image"></a>
+## コンテナイメージの複製 { #replicate-a-container-image }
 
 NCRで提供する複製機能はリージョン間イメージを複製します。複製機能の具体的な特徴は次のとおりです。
 
@@ -502,7 +549,8 @@ NCRで提供する複製機能はリージョン間イメージを複製しま�
 
 イメージ複製機能を使用するにはNCR Consoleで**複製**タブをクリックします。
 
-### 複製構成設定
+<a id="replication-configuration-settings"></a>
+### 複製構成設定 { #replication-configuration-settings }
 
 **複製作成**をクリックし、**複製作成**ダイアログボックスで複製構成に必要な情報を入力します。
 
@@ -510,7 +558,8 @@ NCRで提供する複製機能はリージョン間イメージを複製しま�
 > 複製作成直後は状態が**無効**と表示される場合があります。複製準備が完了すると**有効**と表示されます。
 > 数分経っても状態が変更されない場合は**更新**をクリックします。
 
-### 複製対象フィルタ
+<a id="replication-target-filter"></a>
+### 複製対象フィルタ { #replication-target-filter }
 
 * **ソースイメージ名フィルタ**：イメージ名または一部を入力して指定された対象を複製します。
 * **ソースタグフィルタ**：タグ名または一部を入力して指定された対象を複製します。このフィルタに対して一致/除外を指定できます。
@@ -523,7 +572,8 @@ NCRで提供する複製機能はリージョン間イメージを複製しま�
 | ? : 1.? | 区分記号`/`を除く任意の1文字と一致します。 | 1.0(Y) <br> 1.01(N) |
 | {} : {path,ncr}/** | カンマで区切られた項目のいずれかに一致する文字と一致します。 | path/hello-world(Y) <br> ncr/hello-world(Y) <br> nhn/hello-world(N) |
 
-### 自動複製
+<a id="auto-replication"></a>
+### 自動複製 { #auto-replication }
 
 * **イベントベース**:現在リージョンにイメージがアップロードされる時、自動的に対象リージョンに複製が実行されます。
 * **ユーザー設定**：ユーザーが設定した周期に基づいて複製が実行されます。
@@ -533,7 +583,8 @@ NCRで提供する複製機能はリージョン間イメージを複製しま�
 > 新たにアップロードされるイメージのみ自動複製が実行されます。
 > 複製構成前にアップロードされたイメージを複製するには**手動複製**機能を利用します。
 
-### 手動複製
+<a id="manual-replication"></a>
+### 手動複製 { #manual-replication }
 
 **複製実行**をクリックした後、**複製実行**ダイアログボックスで**確認**をクリックすると複製が実行されます。
 
@@ -541,12 +592,14 @@ NCRで提供する複製機能はリージョン間イメージを複製しま�
 > Garbage Collection機能が実行される前に複製を実行する場合、対象リージョン(B)に複製されたイメージの容量が原本よりも小さくなる可能性があります。
 > 一定時間後に原本イメージの容量が小さくなります。
 
-### 複製ヒストリー
+<a id="replication-history"></a>
+### 複製ヒストリー { #replication-history }
 
 複製ヒストリーで複製進行状況および履歴を確認できます。複製ヒストリーを確認するには構成した複製をクリックし、下部の**詳細情報表示**画面で**複製ヒストリー**タブをクリックします。
 下部の照会された情報をクリックしてヒストリー詳細情報を確認できます。
 
-## イメージキャッシュ使用
+<a id="use-image-cache"></a>
+## イメージキャッシュ使用 { #use-image-cache }
 
 ソースレジストリ(他の遠隔レジストリ)からイメージをダウンロードしてキャッシュする機能を提供します。
 イメージキャッシュタイプのレジストリでイメージPullリクエストが行われると、次のように区分してイメージの提供を決定します。
@@ -561,7 +614,8 @@ NCRで提供する複製機能はリージョン間イメージを複製しま�
 イメージキャッシュタイプのレジストリは、次のようにリクエストしたイメージがない場合、ソースレジストリのイメージをダウンロードして提供します。
 ![D-NCR_imagecache_01](https://static.toastoven.net/prod_ncr/20221129/D-NCR_imagecache_01.png)
 
-### イメージキャッシュの作成
+<a id="create-image-cache"></a>
+### イメージキャッシュの作成 { #create-image-cache }
 
 イメージキャッシュを使用するにはソースレジストリを登録する必要があります。 NCR Consoleで**イメージキャッシュ**タブをクリックし、**イメージキャッシュ作成**をクリックします。**イメージキャッシュ作成**ダイアログボックスでソースレジストリの情報を入力します。
 サポートされるソースレジストリタイプとURL、Access ID、Access Secretは次のとおりです。
@@ -578,17 +632,20 @@ NCRで提供する複製機能はリージョン間イメージを複製しま�
 | Quay | `https://quay.io` | json\_file | {<br>"account\_name": "$ユーザーアカウント"、<br>"docker\_cli\_password": "$Quayで作成した暗号化されたPassword"<br>} |
 
 > [参考]許可されるソースレジストリのポートは80、443です。
-### イメージキャッシュの修正
+<a id="modify-image-cache"></a>
+### イメージキャッシュの修正 { #modify-image-cache }
 
 ソースレジストリを変更できます。 NCR Consoleで**イメージキャッシュ**  >  **イメージキャッシュ修正**をクリックし、**イメージキャッシュ修正**ダイアログボックスでソースレジストリの情報を入力します。
 
-### イメージキャッシュの削除
+<a id="delete-image-cache"></a>
+### イメージキャッシュの削除 { #delete-image-cache }
 
 廃止予定のイメージキャッシュを削除できます。 NCR Consoleの**イメージキャッシュ**で削除したいイメージキャッシュを選択し、**イメージキャッシュ削除**ボタンをクリックします。
 
 > [参考]
 > 当該イメージキャッシュを対象に指定したレジストリが存在する場合、イメージキャッシュを削除できません。
-### イメージキャッシュタイプのレジストリ作成
+<a id="create-an-image-cache-type-registry"></a>
+### イメージキャッシュタイプのレジストリ作成 { #create-an-image-cache-type-registry }
 
 イメージキャッシュタイプのレジストリを作成するにはNCR Consoleの**管理**タブで**レジストリ作成**をクリックします。**レジストリ作成**ダイアログボックスで使用用途に**イメージキャッシュ**を選択し、イメージキャッシュ対象を選択します。
 
@@ -597,7 +654,8 @@ NCRで提供する複製機能はリージョン間イメージを複製しま�
 > イメージキャッシュタイプのレジストリには自動的に`Pullした日付が7日以内のアーティファクトは除外して整理`イメージ整理ポリシーが追加されます。
 > * イメージ整理/保護ポリシーを追加して、レジストリごとにキャッシュされたイメージ管理ポリシーを設定できます。
 > コンテナイメージ複製機能を使用すると、イメージキャッシュタイプのレジストリは一般タイプのレジストリに変更されて複製されます。
-### イメージキャッシュタイプのレジストリからイメージを取得する(Pull)
+<a id="import-an-image-from-the-image-cache-type-registry"></a>
+### イメージキャッシュタイプのレジストリからイメージを取得する(Pull) { #import-an-image-from-the-image-cache-type-registry }
 
 Dockerコマンドラインツールのpullコマンドを使用してイメージキャッシュタイプのレジストリからイメージをインポートできます。
 
@@ -644,16 +702,19 @@ example-kr1-registry.container.nhncloud.com/docker/library/hello-world       lat
 > 同じイメージのインポートを再実行する場合、続きから行われます。
 >
 > イメージキャッシュが処理されていないのに容量が増加した場合、増加した容量は2時間後に元の状態に戻ります。
-### イメージキャッシュタイプのレジストリ削除
+<a id="delete-image-cache-type-registry"></a>
+### イメージキャッシュタイプのレジストリ削除 { #delete-image-cache-type-registry }
 
 廃止予定のイメージキャッシュタイプのレジストリを削除できます。NCR Consoleの**管理**で削除したいレジストリを選択し、**レジストリ削除**ボタンをクリックします。
 
-## イメージ脆弱性スキャン
+<a id="image-vulnerability-scanning"></a>
+## イメージ脆弱性スキャン { #image-vulnerability-scanning }
 
 NCRサービスを有効にすると、デフォルトでイメージ脆弱性スキャン機能を使用できます。
 イメージ脆弱性スキャンを使用すると、選択したアーティファクトの手動スキャンを開始できます。また、特定の間隔でNCR内のすべてのアーティファクトを自動的にスキャンするように周期を設定することもできます。
 
-### アーティファクトスキャン
+<a id="scan-artifacts"></a>
+### アーティファクトスキャン { #scan-artifacts }
 
 **Container** > **NHN Container Registry(NCR)**ページのレジストリリストでアップロードしたレジストリの**イメージ表示**ボタンをクリックすると、コンテナイメージリストを表示できます。
 イメージリストでイメージの**アーティファクト表示**ボタンをクリックすると、そのイメージのアーティファクトリストを表示できます。
@@ -667,11 +728,13 @@ NCRサービスを有効にすると、デフォルトでイメージ脆弱性�
 
 > [参考]
 > 状態が**Scanning**でなければ、いつでもスキャンを開始できます。
-### 脆弱性情報照会
+<a id="retrieve-vulnerability-information"></a>
+### 脆弱性情報照会 { #retrieve-vulnerability-information }
 
 アーティファクトリストでアーティファクトを選択した後、**イメージスキャン**タブで詳細な脆弱性情報を確認できます。
 
-### スキャン設定
+<a id="scan-settings"></a>
+### スキャン設定 { #scan-settings }
 
 自動的に脆弱性をスキャンする周期を設定できます。
 **Container** > **NHN Container Registry(NCR)** > **スキャン設定**をクリックし、**自動スキャン**で設定する周期を選択します。
@@ -686,7 +749,8 @@ NCRサービスを有効にすると、デフォルトでイメージ脆弱性�
 
 > [参考]
 > **Container** > **NHN Container Registry(NCR)**ページで**スキャン設定**を行うと、NCR内のすべてのレジストリに適用されます。
-### CVE許可リスト
+<a id="cve-allow-list"></a>
+### CVE許可リスト { #cve-allow-list }
 
 スキャンを実行すると、イメージに含まれるCVE(common vulnerabilities and exposures、共通脆弱性および漏洩)が識別されます。CVEの重要度によってはイメージの実行を許可しない場合があります。
 この場合、ユーザーはCVE許可リストを作成して特定CVEを無視できます。
@@ -700,7 +764,8 @@ NCR全体に共通CVE許可リストを設定したり、レジストリごと�
 
 > [参考]
 > 個別レジストリに許可リストを設定すると、共通レジストリ許可リストは使用されなくなります。
-### レジストリ設定
+<a id="registry-settings"></a>
+### レジストリ設定 { #registry-settings }
 
 レジストリごとに脆弱性関連設定を行うことができます。
 
@@ -715,11 +780,13 @@ NCR全体に共通CVE許可リストを設定したり、レジストリごと�
 > [参考]
 > イメージキャッシュレジストリに配布防止設定を行って初めてイメージをpullする場合にはイメージキャッシュレジストリにまだイメージの脆弱性情報が存在しないため、配布防止設定が適用されません。   
 
-## イメージ信頼機能
+<a id="image-trust"></a>
+## イメージ信頼機能 { #image-trust }
 
 NCRにあるイメージに署名し、署名を検証してイメージの整合性を確認できます。
 
-### 事前準備
+<a id="image-trust-prerequisites"></a>
+### 事前準備 { #image-trust-prerequisites }
 
 NCRはsigstore/cosignソリューションを利用してイメージ署名機能を提供します。イメージ信頼機能を使用するにはsigstore/cosignクライアントがインストールされている必要があります。
 [sigstore/cosign](https://docs.sigstore.dev/cosign/system_config/installation/)を参照してインストールします。
@@ -730,7 +797,8 @@ NCRはsigstore/cosignソリューションを利用してイメージ署名機�
 **Windows**
 [Cosign for Windows](https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-windows-amd64.exe)をダウンロードしてインストールします。
 
-### キーペアの作成
+<a id="create-key-pair"></a>
+### キーペアの作成 { #create-key-pair }
 
 アーティファクトを署名し、検証するためのキーペアをローカルに作成します。
 コマンドを実行したパスにPrivate/Publicキーファイルが作成されます。
@@ -743,7 +811,8 @@ Private key written to cosign.key
 Public key written to cosign.pub
 ```
 
-### アーティファクト署名
+<a id="sign-artifact"></a>
+### アーティファクト署名 { #sign-artifact }
 
 Privateキーを利用して署名し、signatureをNCRに保存します。
 
@@ -780,7 +849,8 @@ Pushing signature to: f579cc3e-kr2-registry.container.nhncloud.com/hy/busybox
 **アーティファクトの署名有無確認**
 アーティファクトリストの**認証**列でアーティファクトの署名有無を確認できます。
 
-### アーティファクトの署名検証
+<a id="verify-artifact-signature"></a>
+### アーティファクトの署名検証 { #verify-artifact-signature }
 
 Publicキーを利用して偽造・改ざんを検証します。
 
@@ -804,18 +874,21 @@ The following checks were performed on each of these signatures:
 > [参考]
 > 異なるキーで複数回署名する場合、すべてのキーで検証が可能です。
 
-### レジストリ設定
+<a id="image-trust-registry-settings"></a>
+### レジストリ設定 { #image-trust-registry-settings }
 レジストリごとに、署名のないイメージのデプロイをブロックできます。
 **Container > NHN Container Registry(NCR)** ページのレジストリ一覧からレジストリを選択し、**未認証イメージPull防止**の**変更**をクリックして設定します。
 > [参考]
 この設定を有効にすると、既存の署名なしイメージはpullがブロックされ、その署名なしイメージと同一の名前及びタグでイメージをアップロードする際に、アップロードが失敗することがあります。
 設定を有効にする前に既存のイメージへの署名を完了しておけば、その後も正常に使用できます。
 
-## サービス利用権限
+<a id="service-permission"></a>
+## サービス利用権限 { #service-permission }
 
 サービス利用権限を利用してユーザーごとにNCRの使用を制御できます。
 
-### 権限別使用機能
+<a id="features-for-permission"></a>
+### 権限別使用機能 { #features-for-permission }
 
 NCRサービスの利用権限は次のとおりです。
 
