@@ -1,15 +1,21 @@
-## Container > NHN Container Registry(NCR) > 사용 가이드
+<a id="container-nhn-container-registry-ncr-user-guide"></a>
+## Container > NHN Container Registry(NCR) > 사용 가이드 { #container-nhn-container-registry-ncr-user-guide }
 
-## 사전 준비
-### Docker 설치
+<a id="prerequisites"></a>
+## 사전 준비 { #prerequisites }
+<a id="install-docker"></a>
+### Docker 설치 { #install-docker }
 NHN Container Registry(이하 NCR) 서비스는 Docker 컨테이너 이미지를 저장하고 배포하기 위한 서비스입니다. 컨테이너 이미지를 다루려면 우선 사용자의 환경에 Docker가 설치되어 있어야 합니다.
 
+<a id="install-docker-windows"></a>
 #### Windows
 Docker Hub에서 [Docker Desktop for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)를 다운로드해 설치합니다.
 
+<a id="install-docker-macos"></a>
 #### macOS
 Docker Hub에서 [Docker Desktop for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac)을 다운로드해 설치합니다.
 
+<a id="install-docker-linux"></a>
 #### Linux
 Linux 배포판에 따라 설치 과정이 다릅니다. CentOS 7, Ubuntu가 아닌 다른 배포판을 사용한다면 [Install Docker Engine](https://docs.docker.com/engine/install)을 확인하십시오.
 
@@ -58,7 +64,8 @@ $ sudo systemctl start docker
 
 
 
-### User Access Key/Secret Key 확인
+<a id="check-the-user-access-key-and-secret-key"></a>
+### User Access Key/Secret Key 확인 { #check-the-user-access-key-and-secret-key }
 
 Docker 명령줄 도구를 이용해 사용자 레지스트리에 로그인하려면 User Access Key와 Secret Key가 필요합니다. User Access Key와 Secret Key는 NHN Cloud Console의 계정 > **API 보안 설정** 페이지에서 생성할 수 있습니다.
 
@@ -70,20 +77,24 @@ Docker 명령줄 도구를 이용해 사용자 레지스트리에 로그인하�
 
 
 
-## 컨테이너 레지스트리 사용
+<a id="use-a-container-registry"></a>
+## 컨테이너 레지스트리 사용 { #use-a-container-registry }
 
 > [참고]
 > 멤버 권한의 사용자는 컨테이너 이미지 저장, 삭제 기능은 사용할 수 없습니다.
 > NGSC 환경은 외부망 통신이 불가하기 때문에 이미지 캐시 유형의 레지스트리는 사용할 수 없습니다.
 
-### 사용자 레지스트리 생성
+<a id="create-a-user-registry"></a>
+### 사용자 레지스트리 생성 { #create-a-user-registry }
 
 레지스트리 서비스를 처음 사용하려면 먼저 NCR Console에서 레지스트리를 생성해야 합니다. **Container > NHN Container Registry(NCR) > Management** 서비스 페이지로 이동하여 **레지스트리 생성** 버튼을 클릭합니다. 생성하고자 하는 레지스트리의 이름을 입력한 뒤, 확인 버튼을 클릭하면 레지스트리를 생성할 수 있습니다.
 
-### 사용자 레지스트리 주소 확인
+<a id="check-the-user-registry-address"></a>
+### 사용자 레지스트리 주소 확인 { #check-the-user-registry-address }
 생성한 레지스트리의 주소는 **Container > NHN Container Registry(NCR) > Management** 서비스 페이지의 레지스트리 목록에서 확인할 수 있습니다.
 
-### 사용자 레지스트리 로그인
+<a id="log-in-to-the-user-registry"></a>
+### 사용자 레지스트리 로그인 { #log-in-to-the-user-registry }
 컨테이너 이미지를 저장하거나, 원하는 환경으로 가져오려면 Docker 명령줄 도구를 이용해야 합니다. Docker 명령줄 도구를 이용해 사용자 레지스트리에 접근하려면 로그인을 해야 합니다. `docker login` 명령을 사용한 후 `Username`에는 NHN Cloud 사용자 계정의 User Access Key를, `Password`로는 Secret Key를 각각 입력합니다.
 
 ```bash
@@ -98,7 +109,8 @@ Login Succeeded
 
 
 
-### 컨테이너 이미지 저장(Push)
+<a id="store-a-container-image-push"></a>
+### 컨테이너 이미지 저장(Push) { #store-a-container-image-push }
 
 컨테이너 이미지를 사용자 레지스트리에 저장하려면 업로드할 이미지의 이름을 사용자 레지스트리 주소를 포함한 이미지(Image) 이름과 태그(Tag) 형식으로 설정해야 합니다. Docker 명령줄 도구의 **tag** 명령을 이용해 지정할 수 있습니다.
 
@@ -132,7 +144,8 @@ c8be1b8f4d60: Pushed
 18.04: digest: sha256:e5dd9dbb37df5b731a6688fa49f4003359f6f126958c9c928f937bec69836320 size: 1152
 ```
 
-### 컨테이너 이미지 조회
+<a id="view-a-container-image"></a>
+### 컨테이너 이미지 조회 { #view-a-container-image }
 저장된 컨테이너 이미지는 NCR Console에서 조회할 수 있습니다.
 
 * 이미지 목록
@@ -144,7 +157,8 @@ c8be1b8f4d60: Pushed
 * 태그 목록
     아티팩트 목록에서 원하는 아티팩트를 클릭하면 선택한 아티팩트에 지정된 태그 목록을 조회할 수 있습니다. 새로 태그를 생성하거나 태그를 검색해서 삭제할 수 있습니다.
 
-### 컨테이너 이미지 가져오기(Pull)
+<a id="download-a-container-image-pull"></a>
+### 컨테이너 이미지 가져오기(Pull) { #download-a-container-image-pull }
 Docker 명령줄 도구의 **pull** 명령을 사용해 이미지를 가져올 수 있습니다. 이를 위해 NCR Console에서 가져올 이미지의 정보를 확인해야 합니다.
 
 ```bash
@@ -170,10 +184,12 @@ example-kr1-registry.container.nhncloud.com/registry/ubuntu   18.04   4e5021d210
 
 
 
-### Helm chart 사용
+<a id="use-helm-chart"></a>
+### Helm chart 사용 { #use-helm-chart }
 
 NCR에서 Helm chart를 관리할 수 있습니다. Helm chart를 저장하거나, 원하는 환경으로 가져오려면 Helm 명령줄 도구를 이용해야 합니다. Helm 명령줄 도구의 버전은 최소 3.8.0 이상이어야 합니다.
 
+<a id="use-helm-chart-log-in-to-the-user-registry"></a>
 #### 사용자 레지스트리 로그인
 
 Helm 명령줄 도구를 이용해 사용자 레지스트리에 접근하려면 로그인을 해야 합니다. `helm registry login` 명령을 사용한 후 `Username`에는 NHN Cloud 사용자 계정의 User Access Key를, `Password`로는 Secret Key를 각각 입력합니다.
@@ -185,6 +201,7 @@ Password: {NHN Cloud 사용자 계정 User Secret Key}
 Login Succeeded
 ```
 
+<a id="use-helm-chart-save-helm-chart-push"></a>
 #### Helm chart 저장(Push)
 
 Helm chart를 레지스트리에 저장하려면 업로드할 차트를 압축하여 로컬에 저장해야 합니다. Helm chart의 root 디렉터리로 디렉터리를 변경한 뒤 **package** 명령을 이용해 차트를 로컬에 저장합니다. `Chart.yaml`에 지정된 이름과 버전으로 저장됩니다.
@@ -212,6 +229,7 @@ Pushed: example-kr1-registry.container.nhncloud.com/registry/helm:0.1.0
 Digest: sha256:628760743a9642f0edd5f4dc30b598827c2c4cde4976ebe9eeb2d3e827ca7e99
 ```
 
+<a id="use-helm-chart-install-helm-chart"></a>
 #### Helm chart 설치(Install)
 
 Helm 명령줄 도구의 **install** 명령을 사용해 차트를 Kubernetes 환경에 배포할 수 있습니다. 이를 위해 NCR Console에서 설치할 차트의 정보를 확인해야 합니다.
@@ -226,6 +244,7 @@ helm install {배포 이름} oci://{사용자 레지스트리 주소}/{차트 �
 $ helm install myrelease oci://example-kr1-registry.container.nhncloud.com/registry/helm --version 0.1.0
 ```
 
+<a id="use-helm-chart-import-helm-chart-push"></a>
 #### Helm chart 가져오기(Pull)
 
 Helm 명령줄 도구의 **pull** 명령을 사용해 차트를 압축파일로 가져올 수 있습니다. 이를 위해 NCR Console에서 가져올 차트의 정보를 확인해야 합니다.
@@ -242,11 +261,13 @@ Pulled: example-kr1-registry.container.nhncloud.com/registry/helm:0.1.0
 Digest: sha256:628760743a9642f0edd5f4dc30b598827c2c4cde4976ebe9eeb2d3e827ca7e99
 ```
 
-### OCI Artifact 사용
+<a id="use-oci-artifact"></a>
+### OCI Artifact 사용 { #use-oci-artifact }
 
 ORAS 명령줄 도구를 사용하여 임의의 파일을 OCI Artifact로 레지스트리에 저장할 수 있습니다.
 [ORAS installation](https://oras.land/docs/installation)을 참고하여 ORAS 명령줄 도구를 설치합니다. ORAS 명령줄 도구의 자세한 사용법은 [ORAS docs](https://oras.land/docs/)를 참고하십시오.
 
+<a id="use-oci-artifact-log-in-to-the-user-registry"></a>
 #### 사용자 레지스트리 로그인
 
 ORAS 명령줄 도구를 이용해 사용자 레지스트리에 접근하려면 로그인을 해야 합니다. `oras login` 명령을 사용한 후 `Username`에는 NHN Cloud 사용자 계정의 User Access Key를, `Password`로는 Secret Key를 각각 입력합니다.
@@ -258,6 +279,7 @@ Password: {NHN Cloud 사용자 계정 User Secret Key}
 Login Succeeded
 ```
 
+<a id="use-oci-artifact-save-oci-artifact-push"></a>
 #### OCI Artifact 저장(Push)
 
 레지스트리에 저장할 임의의 파일을 생성합니다.
@@ -282,6 +304,7 @@ Pushed [registry] example-kr1-registry.container.nhncloud.com/registry/hello-art
 Digest: sha256:fbd2f5fd108cc75e7a805d9f21ab3c2ad8810c55c4e6581b1e1b3f3ea111d4fc
 ```
 
+<a id="use-oci-artifact-import-oci-artifact-pull"></a>
 #### OCI Artifact 가져오기(Pull)
 
 ORAS 명령줄 도구의 **pull** 명령을 사용해 파일을 가져올 수 있습니다. 이를 위해 NCR Console에서 가져올 차트의 정보를 확인해야 합니다.
@@ -300,30 +323,36 @@ Pulled [registry] example-kr1-registry.container.nhncloud.com/registry/hello-art
 Digest: sha256:a6886dfd78cfee5412d410d5ad09129efea9fe7da9c911dd976e8e77808a95b0
 ```
 
-## 컨테이너 레지스트리 관리
+<a id="manage-a-container-registry"></a>
+## 컨테이너 레지스트리 관리 { #manage-a-container-registry }
 
 > [참고]
 > NGSC 환경은 외부망 통신이 불가하기 때문에 웹훅은 사용할 수 없습니다.
 
-### 컨테이너 이미지 및 아티팩트 삭제
+<a id="delete-container-images-and-artifacts"></a>
+### 컨테이너 이미지 및 아티팩트 삭제 { #delete-container-images-and-artifacts }
 
 레지스트리에 저장된 이미지를 더 이상 사용하지 않는다면 NCR Console에서 삭제할 수 있습니다. 이미지를 삭제하려면 이미지 목록 보기 화면에서 삭제할 이미지를 선택한 후 **이미지 삭제** 버튼을 클릭합니다. 마찬가지로 아티팩트를 삭제하려면 아티팩트 목록 보기 화면에서 삭제할 아티팩트를 선택한 후 **아티팩트 삭제** 버튼을 클릭합니다.
 
-### 컨테이너 이미지 태그 생성
+<a id="create-a-container-image-tag"></a>
+### 컨테이너 이미지 태그 생성 { #create-a-container-image-tag }
 
 Docker 명령줄 도구 없이 NCR Console에서 태그를 생성할 수 있습니다. 아티팩트 목록 보기 화면에서 태그를 추가할 아티팩트를 선택한 뒤, 하단의 상세 정보 보기 화면에서 **태그** 탭을 선택합니다. 그러면 현재 선택한 아티팩트에 지정된 태그 목록을 볼 수 있습니다. 여기서 **태그 생성** 버튼을 클릭하면 **태그 생성** 대화 상자가 나타나고, 원하는 태그 이름을 입력하여 새로운 태그를 생성할 수 있습니다.
 
-### 컨테이너 이미지 태그 삭제
+<a id="delete-a-container-image-tag"></a>
+### 컨테이너 이미지 태그 삭제 { #delete-a-container-image-tag }
 
 더 이상 사용하지 않는 태그가 있다면 마찬가지로 NCR Console에서 태그를 삭제할 수 있습니다. 태그 생성할 때와 마찬가지로 태그 목록 보기 화면으로 이동한 후 삭제할 태그를 선택합니다. 태그가 많아 태그 목록에 바로 나타나지 않는 경우 태그 검색 기능을 활용하여 삭제하고자 하는 태그를 찾을 수 있습니다. 삭제할 태그를 선택하고 **태그 삭제** 버튼을 클릭하면 선택한 태그를 삭제할 수 있습니다.
 
-### 컨테이너 이미지 정리
+<a id="container-image-cleanup"></a>
+### 컨테이너 이미지 정리 { #container-image-cleanup }
 
 레지스트리에 저장된 이미지와 아티팩트를 정책에 따라 정리(삭제) 하도록 NCR Console에서 설정할 수 있습니다. 이미지 정리 정책을 사용하려면 설정할 레지스트리를 선택하고 하단의 상세 정보 보기 화면에서 **이미지 정리** 탭을 클릭합니다.
 
 > [주의]
 > 이미지 정리와 보호에 동일한 정책이 설정된 경우 이미지 보호 정책이 우선 처리되어 이미지 정리 기능이 정상적으로 동작하지 않을 수 있습니다.
 
+<a id="container-image-cleanup-image-cleanup-policy-setting"></a>
 #### 이미지 정리 정책 설정
 
 **정책 설정** 탭에서 **정리 정책 추가** 버튼을 클릭하면 **정리 정책 추가** 대화 상자가 나타나고, 원하는 이미지, 태그, 정책을 입력하여 새로운 정리 정책을 설정할 수 있습니다.
@@ -340,20 +369,24 @@ Docker 명령줄 도구 없이 NCR Console에서 태그를 생성할 수 있습�
 >
 > `Push/Pull 한 날짜가 N 일인 아티팩트 제외하고, 정리` 정책은 Push/Pull을 수행한 지 N 일을 초과한 아티팩트를 제거합니다.
 
+<a id="container-image-cleanup-delete-image-cleanup-policy"></a>
 #### 이미지 정리 정책 삭제
 
 **정책 설정** 탭 하단에서 삭제할 정리 정책을 선택하고 **정리 정책 삭제** 버튼을 클릭하여 삭제할 수 있습니다.
 
+<a id="container-image-cleanup-test-run"></a>
 #### 테스트 실행
 
 **정책 설정** 탭에서 **테스트 실행** 버튼을 클릭하여 설정한 이미지 정리 정책을 테스트할 수 있습니다.
 테스트 실행 결과는 **히스토리 조회** 탭에서 확인할 수 있습니다.
 
+<a id="container-image-cleanup-run-immediately"></a>
 #### 지금 실행
 
 **정책 설정** 탭에서 **지금 실행** 버튼을 클릭하여 설정한 이미지 정리 정책을 수동으로 실행합니다.
 실행 결과는 **히스토리 조회** 탭에서 확인할 수 있습니다.
 
+<a id="container-image-cleanup-cleanup-cycle-setting"></a>
 #### 정리 주기 설정
 
 이미지 정리 정책을 주기적으로 자동 실행되도록 설정할 수 있습니다.
@@ -370,15 +403,18 @@ Docker 명령줄 도구 없이 NCR Console에서 태그를 생성할 수 있습�
 > [참고]
 > Cron 표현식과 함께 사용하는 시간대는 협정 세계시(UTC)입니다.
 
+<a id="container-image-cleanup-view-history"></a>
 #### 히스토리 조회
 
 **히스토리 조회** 탭에서 이미지 정리 히스토리를 조회할 수 있습니다.
 하단의 조회된 정보를 클릭하여 히스토리 상세 정보를 확인할 수 있습니다.
 
-### 컨테이너 이미지 보호
+<a id="container-image-protection"></a>
+### 컨테이너 이미지 보호 { #container-image-protection }
 
 레지스트리에 저장된 이미지와 아티팩트가 삭제/변경되지 않도록 NCR Console에서 이미지 보호 기능을 설정할 수 있습니다. 이미지 보호 기능을 사용하려면 설정할 레지스트리를 선택하고 하단의 상세 정보 보기 화면에서 **이미지 보호** 탭을 클릭합니다.
 
+<a id="container-image-protection-add-image-protection-policy"></a>
 #### 이미지 보호 정책 추가
 
 **보호 정책 추가** 버튼을 클릭하면 **보호 정책 추가** 대화 상자가 나타나고, 원하는 보호 정책을 입력하여 새로운 보호 정책을 설정할 수 있습니다.
@@ -387,12 +423,14 @@ Docker 명령줄 도구 없이 NCR Console에서 태그를 생성할 수 있습�
 > [참고]
 > 레지스트리에 이미지와 태그가 동일한 보호 정책을 중복으로 추가할 수 없습니다.
 
+<a id="container-image-protection-delete-image-protection-policy"></a>
 #### 이미지 보호 정책 삭제
 
 **이미지 보호** 탭 하단에서 삭제할 보호 정책을 선택하고 **보호 정책 삭제** 버튼을 클릭하여 삭제할 수 있습니다.
 
 <span id="public-uri"></span>
-## Public URI 사용
+<a id="use-public-uri"></a>
+## Public URI 사용 { #use-public-uri }
 Public URI는 외부에서 NCR에 접근할 수 있도록 제공하는 주소입니다. 레지스트리를 생성할 때 Public URI 사용 여부를 설정하여 레지스트리에 대한 접근을 제어할 수 있습니다. Public URI를 사용함으로써, 외부 시스템이나 서비스에서 레지스트리의 이미지를 활용할 수 있게 됩니다.
 
 Public URI를 사용하지 않도록 설정하면 레지스트리는 외부에서 접근할 수 없도록 제한됩니다. 이 설정은 레지스트리에 대한 접근을 NHN Cloud의 VPC 네트워크로 제한하여 외부에서의 무단 다운로드나 업로드 시도를 방지하고 보안을 강화합니다.
@@ -401,7 +439,8 @@ Public URI를 사용하지 않도록 설정하면 레지스트리는 외부에�
 > Public URI를 사용하지 않도록 설정하면, 외부에서 레지스트리에 저장된 이미지에 접근할 수 없게 됩니다. 설정을 변경할 때에는 주변 시스템 및 서비스에 영향을 미칠 수 있으므로, 변경 전에 충분한 검증과 테스트를 수행해야 합니다.
 
 <span id="private-uri"></span>
-## Private URI 사용
+<a id="use-private-uri"></a>
+## Private URI 사용 { #use-private-uri }
 Private URI는 NHN Cloud의 VPC 네트워크 내에서 사용할 수 있는 NCR 주소입니다. 보안을 강화하기 위해 인터넷 게이트웨이에 연결하지 않고 외부 네트워크를 단절한 인스턴스에서 NCR 서비스를 사용하고자 할 때 Private URI 기능을 활용할 수 있습니다.
 
 > [참고]
@@ -410,17 +449,20 @@ Private URI는 NHN Cloud의 VPC 네트워크 내에서 사용할 수 있는 NCR 
 > [참고]
 > 인스턴스, 서비스 게이트웨이, Object Storage와 NCR은 모두 동일한 리전을 사용해야 합니다.
 
-### NCR 서비스 게이트웨이 생성
+<a id="create-an-ncr-service-gateway"></a>
+### NCR 서비스 게이트웨이 생성 { #create-an-ncr-service-gateway }
 **Network > Service Gateway** 페이지로 이동하여 **서비스 게이트웨이 생성**을 클릭합니다. 생성하고자 하는 서비스 게이트웨이의 **이름**, **VPC**, **서브넷**을 입력하고 **서비스**를 **NCR**로 선택한 뒤 **확인**을 클릭하면 NCR 서비스 게이트웨이가 생성됩니다.
 ![ncr_c001_20220927](https://static.toastoven.net/prod_ncr/20220927/ncr_ko_c001.png)
 
-### Object Storage 서비스 게이트웨이 생성
+<a id="create-an-object-storage-service-gateway"></a>
+### Object Storage 서비스 게이트웨이 생성 { #create-an-object-storage-service-gateway }
 NCR에서 Private URI를 이용하여 이미지를 가져오려면 Object Storage에 대한 서비스 게이트웨이를 생성해야 합니다. NCR은 Object Storage를 사용하여 이미지 계층을 저장하기 때문에 서비스 게이트웨이가 필요합니다. 이미지를 다운로드할 때도 NCR에 접근하여 이미지 매니페스트를 가져온 뒤 Object Storage에 접근하여 실제 이미지 계층을 다운로드합니다.
 
 **Network > Service Gateway** 페이지로 이동하여 **서비스 게이트웨이 생성**을 클릭합니다. 생성하고자 하는 서비스 게이트웨이의 **이름**, **VPC**, **서브넷**을 입력하고 **서비스**를 **Object Storage**로 선택한 뒤 **확인**을 클릭하면 Object Storage 서비스 게이트웨이가 생성됩니다.
 ![ncr_c002_20220927](https://static.toastoven.net/prod_ncr/20220927/ncr_ko_c005.png)
 
-### 호스트 등록
+<a id="register-host"></a>
+### 호스트 등록 { #register-host }
 인터넷 게이트웨이에 연결하지 않은 인스턴스에서 Private URI를 통해 NCR 레지스트리를 사용할 수 있도록 호스트 파일에 도메인과 IP를 설정해야 합니다.
 인스턴스에서 Private Endpoint의 IP를 찾을 수 있도록 호스트 파일에 NCR 서비스 게이트웨이 IP 주소와 NCR Private Endpoint, Object Storage 서비스 게이트웨이 IP 주소와 Object Storage 도메인을 입력합니다.
 
@@ -451,7 +493,8 @@ Private Endpoint: private-example-kr1-registry.container.nhncloud.com
 ```
 
 
-### Private URI를 통한 레지스트리 작업
+<a id="registry-work-via-private-uri"></a>
+### Private URI를 통한 레지스트리 작업 { #registry-work-via-private-uri }
 인스턴스에 접속하고 `docker login` 명령을 실행하여 레지스트리에 로그인합니다. 인스턴스 구성에 따라 다음 명령에 `sudo`를 접두사로 붙여야 할 수도 있습니다.
 ```shell
 $ docker login {사용자 Private 레지스트리 주소}
@@ -490,11 +533,13 @@ REPOSITORY                                                        TAG     IMAGE 
 example-kr1-registry.container.nhncloud.com/hello-world/ubuntu   18.04   4e5021d210f6    12 days ago     64.2MB
 ```
 
-## 이미지 신뢰 기능
+<a id="image-trust"></a>
+## 이미지 신뢰 기능 { #image-trust }
 
 NCR에 있는 이미지에 서명하고 서명을 검증하여 이미지의 무결성을 확인할 수 있습니다.
 
-### 사전 준비
+<a id="image-trust-prerequisites"></a>
+### 사전 준비 { #image-trust-prerequisites }
 
 NCR은 sigstore/cosign 솔루션을 이용하여 이미지 서명 기능을 제공합니다. 이미지 신뢰 기능을 사용하려면 sigstore/cosign 클라이언트가 설치되어 있어야 합니다.
 [sigstore/cosign](https://docs.sigstore.dev/cosign/system_config/installation/)를 참고하여 설치합니다.
@@ -505,7 +550,8 @@ NCR은 sigstore/cosign 솔루션을 이용하여 이미지 서명 기능을 제�
 **Windows**
 [Cosign for Windows](https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-windows-amd64.exe)를 다운로드해 설치합니다.
 
-### 키 페어 생성
+<a id="create-key-pair"></a>
+### 키 페어 생성 { #create-key-pair }
 
 아티팩트를 서명하고 검증하기 위한 키 페어를 로컬에 생성합니다.
 명령어를 실행한 경로에 Private/Public 키 파일이 생성됩니다.
@@ -518,7 +564,8 @@ Private key written to cosign.key
 Public key written to cosign.pub
 ```
 
-### 아티팩트 서명
+<a id="sign-artifact"></a>
+### 아티팩트 서명 { #sign-artifact }
 
 Private 키를 이용하여 서명하고 signature를 NCR에 저장합니다.
 
@@ -553,7 +600,8 @@ Pushing signature to: f579cc3e-kr2-registry.container.nhncloud.com/hy/busybox
 **아티팩트 서명 여부 확인**
 아티팩트 목록의 **인증** 열에서 아티팩트들의 서명 여부를 확인할 수 있습니다.
 
-### 아티팩트의 서명 검증
+<a id="verify-artifact-signature"></a>
+### 아티팩트의 서명 검증 { #verify-artifact-signature }
 
 Public 키를 이용하여 위변조를 검증합니다.
 
@@ -575,7 +623,8 @@ The following checks were performed on each of these signatures:
 [{"critical":{"identity":{"docker-reference":"517a8ef5-kr1-registry.container.nhncloud.com/hy/busybox"},"image":{"docker-manifest-digest":"sha256:5e42fbc46b177f10319e8937dd39702e7891ce6d8a42d60c1b4f433f94200bd2"},"type":"cosign container image signature"},"optional":{"Bundle":{"SignedEntryTimestamp":"MEYCIQDw+fMYgkFqzoAT2LOJaLogLyGKMzhcz31RZEcdc1+84wIhAJ46+JqazStGtkqaJWRcmRkk97/nJ4L0wrNXhj1JCifO","Payload":{"body":"eyJhcGlWZXJzaW9uIjoiMC4wLjEiLCJraW5kIjoiaGFzaGVkcmVrb3JkIiwic3BlYyI6eyJkYXRhIjp7Imhhc2giOnsiYWxnb3JpdGhtIjoic2hhMjU2IiwidmFsdWUiOiI1YzMxNmNjYjRmMTBjMDhkNmY4ODVjMDVkNzhlZjMyODliZDMxYjhhMTliMDAwZTAwOTkwMzcxM2Y0ZGRmYTViIn19LCJzaWduYXR1cmUiOnsiY29udGVudCI6Ik1FWUNJUUR5WEtYSEpzamZNZDJIMjRxWkliTDFSOE1XTFV3K0pKdHg3Z1J5T1JEYTd3SWhBSXAvalNWQkhMdm5NczY4ZWVSMFBVUkZtQjI0b0VFRVN5NmZKVHhXT0JXVyIsInB1YmxpY0tleSI6eyJjb250ZW50IjoiTFMwdExTMUNSVWRKVGlCUVZVSk1TVU1nUzBWWkxTMHRMUzBLVFVacmQwVjNXVWhMYjFwSmVtb3dRMEZSV1VsTGIxcEplbW93UkVGUlkwUlJaMEZGWTBWcEsyMU9UR05wYzBaSWQyVXlOamRhUzJsc01ERkNRMk0xTWdwTlowTkdVWGhDYkRsa2NGTlJOakowVmtrMFNsQmxLMGxRVjJ0VFFXc3JNRzlKWmtZMU9GRjJVMUpxTm1OcU1XSm1SWEpKUVhOVGNWVm5QVDBLTFMwdExTMUZUa1FnVUZWQ1RFbERJRXRGV1MwdExTMHRDZz09In19fX0=","integratedTime":1679898462,"logIndex":16394784,"logID":"c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d"}}}}]
 ```
 
-### 레지스트리 설정
+<a id="image-trust-registry-settings"></a>
+### 레지스트리 설정 { #image-trust-registry-settings }
 
 레지스트리별로 서명되지 않은 이미지의 배포를 차단할 수 있습니다.
 **Container > NHN Container Registry(NCR)** 페이지의 레지스트리 목록에서 레지스트리를 선택한 후 **미인증 이미지 Pull 방지**의 **변경**을 클릭하여 설정합니다.
@@ -587,11 +636,13 @@ The following checks were performed on each of these signatures:
 > [참고]
 > 다른 키로 여러 번 서명할 경우 모든 키로 검증이 가능합니다.
 
-## 서비스 이용 권한
+<a id="service-permission"></a>
+## 서비스 이용 권한 { #service-permission }
 
 서비스 이용 권한을 이용하여 사용자별로 NCR 사용을 통제할 수 있습니다.
 
-### 권한별 사용 기능
+<a id="features-for-permission"></a>
+### 권한별 사용 기능 { #features-for-permission }
 
 NCR 서비스 이용 권한은 다음과 같습니다.
 
