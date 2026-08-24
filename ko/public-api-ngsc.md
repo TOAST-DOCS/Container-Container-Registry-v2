@@ -1,11 +1,11 @@
 <a id="ncr-api-guide"></a>
-## Container > NHN Container Registry(NCR) > API 가이드
+## Container > NHN Container Registry(NCR) > API 가이드 { #ncr-api-guide }
 
 컨테이너 레지스트리를 구성하기 위한 API를 기술합니다.
 API를 사용하려면 User Access Key와 Secret Access Key가 필요합니다. User Access Key와 Secret Access Key는 NHN Cloud 콘솔의 계정 > **API 보안 설정** 페이지에서 생성합니다.
 
 <a id="api-request-common"></a>
-### API 요청 공통 정보
+### API 요청 공통 정보 { #api-request-common }
 
 API를 사용하려면 서비스 AppKey가 필요합니다. 서비스 Appkey는 콘솔 상단 <strong>URL & Appkey</strong> 메뉴에서 확인이 가능합니다.
 API 도메인은 다음과 같습니다.
@@ -22,7 +22,7 @@ API 헤더는 다음과 같습니다
 | X-TC-AUTHENTICATION-SECRET | Header | String | X (생성하였을 경우 필수) | Secret Access Key |
 
 <a id="api-response-common"></a>
-### API 응답 공통 정보
+### API 응답 공통 정보 { #api-response-common }
 
 모든 API 요청에 <strong>200 OK</strong>로 응답합니다. 자세한 응답 결과는 응답 본문 헤더를 참고합니다.
 
@@ -37,10 +37,10 @@ API 헤더는 다음과 같습니다
 > [주의] 리소스를 생성할 때 입력하지 않은 옵션 필드는 조회할 때 응답 본문에 나타나지 않을 수 있습니다.
 
 <a id="container-registry"></a>
-## 컨테이너 레지스트리
+## 컨테이너 레지스트리 { #container-registry }
 
 <a id="registry-list"></a>
-### 컨테이너 레지스트리 목록 보기
+### 컨테이너 레지스트리 목록 보기 { #registry-list }
 
 컨테이너 레지스트리 목록을 조회합니다.
 
@@ -48,6 +48,7 @@ API 헤더는 다음과 같습니다
 GET /ncr/v2.0/appkeys/{appKey}/registries
 ```
 
+<a id="registry-list-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -58,6 +59,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries
 | page | Query | Integer | X | 조회할 페이지 번호 |
 | page\_size | Query | Integer | X | 조회할 페이지 크기(default: 10) |
 
+<a id="registry-list-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -120,7 +122,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries
 ```
 
 <a id="registry-get"></a>
-### 컨테이너 레지스트리 보기
+### 컨테이너 레지스트리 보기 { #registry-get }
 
 컨테이너 레지스트리 정보를 조회합니다.
 
@@ -128,6 +130,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries
 GET /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}
 ```
 
+<a id="registry-get-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -138,6 +141,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}
 | registryNameOrId | URL | String | O | 레지스트리 이름 또는 ID, 이름이 숫자로만 되어 있으면 X-Is-Resource-Name 값 true 설정 |
 | X-Is-Resource-Name | Header | String | X | registryNameOrId 값 이름 여부, true/false |
 
+<a id="registry-get-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -198,7 +202,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}
 ```
 
 <a id="registry-create"></a>
-### 컨테이너 레지스트리 생성하기
+### 컨테이너 레지스트리 생성하기 { #registry-create }
 
 컨테이너 레지스트리를 생성합니다.
 
@@ -206,6 +210,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}
 POST /ncr/v2.0/appkeys/{appKey}/registries
 ```
 
+<a id="registry-create-request"></a>
 #### 요청
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -227,12 +232,13 @@ POST /ncr/v2.0/appkeys/{appKey}/registries
 }
 ```
 
+<a id="registry-create-response"></a>
 #### 응답
 
 이 API는 공통 정보만 응답합니다.
 
 <a id="registry-delete"></a>
-### 컨테이너 레지스트리 삭제하기
+### 컨테이너 레지스트리 삭제하기 { #registry-delete }
 
 컨테이너 레지스트리를 삭제합니다.
 
@@ -240,6 +246,7 @@ POST /ncr/v2.0/appkeys/{appKey}/registries
 DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}
 ```
 
+<a id="registry-delete-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -250,12 +257,13 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}
 | registryNameOrId | URL | String | O | 레지스트리 이름 또는 ID, 이름이 숫자로만 되어 있으면 X-Is-Resource-Name 값 true 설정 |
 | X-Is-Resource-Name | Header | String | X | registryNameOrId 값 이름 여부, true/false |
 
+<a id="registry-delete-response"></a>
 #### 응답
 
 이 API는 공통 정보만 응답합니다.
 
 <a id="registry-update"></a>
-### 컨테이너 레지스트리 변경하기
+### 컨테이너 레지스트리 변경하기 { #registry-update }
 
 컨테이너 레지스트리를 변경합니다.
 
@@ -263,6 +271,7 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}
 PUT /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}
 ```
 
+<a id="registry-update-request"></a>
 #### 요청
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -296,12 +305,13 @@ PUT /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}
 }
 ```
 
+<a id="registry-update-response"></a>
 #### 응답
 
 이 API는 공통 정보만 응답합니다.
 
 <a id="image-protection-policy-list"></a>
-### 이미지 보호 정책 목록 보기
+### 이미지 보호 정책 목록 보기 { #image-protection-policy-list }
 
 이미지 보호 정책 목록을 조회합니다.
 
@@ -309,6 +319,7 @@ PUT /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}
 GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/immutabletagrules
 ```
 
+<a id="image-protection-policy-list-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -320,6 +331,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/immutabletagrules
 | page | Query | Integer | X | 조회할 페이지 번호 |
 | page\_size | Query | Integer | X | 조회할 페이지 크기(default: 10) |
 
+<a id="image-protection-policy-list-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -361,7 +373,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/immutabletagrules
 ```
 
 <a id="image-protection-policy-create"></a>
-### 이미지 보호 정책 생성하기
+### 이미지 보호 정책 생성하기 { #image-protection-policy-create }
 
 이미지 보호 정책을 생성합니다.
 
@@ -369,6 +381,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/immutabletagrules
 POST /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/immutabletagrules
 ```
 
+<a id="image-protection-policy-create-request"></a>
 #### 요청
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -393,12 +406,13 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/immutabletagrules
 }
 ```
 
+<a id="image-protection-policy-create-response"></a>
 #### 응답
 
 이 API는 공통 정보만 응답합니다.
 
 <a id="image-protection-policy-delete"></a>
-### 이미지 보호 정책 삭제하기
+### 이미지 보호 정책 삭제하기 { #image-protection-policy-delete }
 
 이미지 보호 정책을 삭제합니다.
 
@@ -406,6 +420,7 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/immutabletagrules
 DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/immutabletagrules/{rule_id}
 ```
 
+<a id="image-protection-policy-delete-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -416,12 +431,13 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/immutabletagrules/{rul
 | registryId | URL | String | O | 레지스트리 ID |
 | rule\_id | URL | String | O | 이미지 보호 정책 ID |
 
+<a id="image-protection-policy-delete-response"></a>
 #### 응답
 
 이 API는 공통 정보만 응답합니다.
 
 <a id="image-protection-policy-update"></a>
-### 이미지 보호 정책 변경하기
+### 이미지 보호 정책 변경하기 { #image-protection-policy-update }
 
 이미지 보호 정책을 변경합니다.
 
@@ -429,6 +445,7 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/immutabletagrules/{rul
 PUT /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/immutabletagrules/{rule_id}
 ```
 
+<a id="image-protection-policy-update-request"></a>
 #### 요청
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -460,12 +477,13 @@ PUT /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/immutabletagrules/{rule_i
 }
 ```
 
+<a id="image-protection-policy-update-response"></a>
 #### 응답
 
 이 API는 공통 정보만 응답합니다.
 
 <a id="image-cleanup-policy-list"></a>
-### 이미지 정리 정책 목록 보기
+### 이미지 정리 정책 목록 보기 { #image-cleanup-policy-list }
 
 이미지 정리 정책 목록을 조회합니다.
 
@@ -473,6 +491,7 @@ PUT /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/immutabletagrules/{rule_i
 GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions
 ```
 
+<a id="image-cleanup-policy-list-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -484,6 +503,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions
 | page | Query | Integer | X | 조회할 페이지 번호 |
 | page\_size | Query | Integer | X | 조회할 페이지 크기(default: 10) |
 
+<a id="image-cleanup-policy-list-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -536,7 +556,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions
 ```
 
 <a id="image-cleanup-policy-create"></a>
-### 이미지 정리 정책 생성하기
+### 이미지 정리 정책 생성하기 { #image-cleanup-policy-create }
 
 이미지 정리 정책을 생성합니다.
 
@@ -544,6 +564,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions
 POST /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions
 ```
 
+<a id="image-cleanup-policy-create-request"></a>
 #### 요청
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -579,12 +600,13 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions
 }
 ```
 
+<a id="image-cleanup-policy-create-response"></a>
 #### 응답
 
 이 API는 공통 정보만 응답합니다.
 
 <a id="image-cleanup-policy-delete"></a>
-### 이미지 정리 정책 삭제하기
+### 이미지 정리 정책 삭제하기 { #image-cleanup-policy-delete }
 
 이미지 보호 정책을 삭제합니다.
 
@@ -592,6 +614,7 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions
 DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions
 ```
 
+<a id="image-cleanup-policy-delete-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -602,12 +625,13 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions
 | registryId | URL | String | O | 레지스트리 ID |
 | id | Query | Integer | O | 이미지 정리 정책 ID |
 
+<a id="image-cleanup-policy-delete-response"></a>
 #### 응답
 
 이 API는 공통 정보만 응답합니다.
 
 <a id="image-cleanup-policy-update"></a>
-### 이미지 정리 정책 변경하기
+### 이미지 정리 정책 변경하기 { #image-cleanup-policy-update }
 
 이미지 보호 정책을 변경합니다.
 
@@ -615,6 +639,7 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions
 PUT /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/{rule_id}
 ```
 
+<a id="image-cleanup-policy-update-request"></a>
 #### 요청
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -657,12 +682,13 @@ PUT /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/{rule_id}
 }
 ```
 
+<a id="image-cleanup-policy-update-response"></a>
 #### 응답
 
 이 API는 공통 정보만 응답합니다.
 
 <a id="image-cleanup-history-list"></a>
-### 이미지 정리 히스토리 목록 보기
+### 이미지 정리 히스토리 목록 보기 { #image-cleanup-history-list }
 
 이미지 정리 히스토리 목록을 조회합니다.
 
@@ -670,6 +696,7 @@ PUT /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/{rule_id}
 GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions
 ```
 
+<a id="image-cleanup-history-list-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -681,6 +708,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions
 | page | Query | Integer | X | 조회할 페이지 번호 |
 | page\_size | Query | Integer | X | 조회할 페이지 크기(default: 10) |
 
+<a id="image-cleanup-history-list-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -716,7 +744,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions
 ```
 
 <a id="image-cleanup-history-detail"></a>
-### 이미지 정리 히스토리 상세 보기
+### 이미지 정리 히스토리 상세 보기 { #image-cleanup-history-detail }
 
 이미지 정리 히스토리를 조회합니다.
 
@@ -724,6 +752,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions
 GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions/{executionId}/tasks
 ```
 
+<a id="image-cleanup-history-detail-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -736,6 +765,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions/{ex
 | page | Query | Integer | X | 조회할 페이지 번호 |
 | page\_size | Query | Integer | X | 조회할 페이지 크기(default: 10) |
 
+<a id="image-cleanup-history-detail-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -773,7 +803,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions/{ex
 ```
 
 <a id="image-cleanup-history-log"></a>
-### 이미지 정리 히스토리 로그 보기
+### 이미지 정리 히스토리 로그 보기 { #image-cleanup-history-log }
 
 이미지 정리 히스토리 로그를 조회합니다.
 
@@ -781,6 +811,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions/{ex
 GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions/{executionId}/tasks/{taskId}
 ```
 
+<a id="image-cleanup-history-log-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -792,6 +823,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions/{ex
 | executionId | URL | String | O | 이미지 정리 히스토리 ID |
 | taskId | URL | String | O | 이미지 정리 태스크 ID |
 
+<a id="image-cleanup-history-log-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -799,7 +831,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions/{ex
 | tasks | Body | String | O | 이미지 정리 로그 |
 
 <a id="image-cleanup-policy-run"></a>
-### 이미지 정리 정책 실행
+### 이미지 정리 정책 실행 { #image-cleanup-policy-run }
 
 이미지 정리 정책을 실행합니다.
 
@@ -807,6 +839,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions/{ex
 POST /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions
 ```
 
+<a id="image-cleanup-policy-run-request"></a>
 #### 요청
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -815,12 +848,13 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions
 | registryId | URL | String | O | 레지스트리 ID |
 | dry\_run | Body | Boolean | X | 테스트 실행 여부 |
 
+<a id="image-cleanup-policy-run-response"></a>
 #### 응답
 
 이 API는 공통 정보만 응답합니다.
 
 <a id="image-cleanup-schedule-get"></a>
-### 이미지 정리 주기 보기
+### 이미지 정리 주기 보기 { #image-cleanup-schedule-get }
 
 이미지 정리 주기를 조회합니다.
 
@@ -828,6 +862,7 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/executions
 GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/schedule
 ```
 
+<a id="image-cleanup-schedule-get-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -837,6 +872,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/schedule
 | appKey | URL | String | O | 서비스 Appkey |
 | registryId | URL | String | O | 레지스트리 ID |
 
+<a id="image-cleanup-schedule-get-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -865,7 +901,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/schedule
 ```
 
 <a id="image-cleanup-schedule-create"></a>
-### 이미지 정리 주기 생성하기
+### 이미지 정리 주기 생성하기 { #image-cleanup-schedule-create }
 
 이미지 정리 주기를 생성합니다.
 
@@ -873,6 +909,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/schedule
 POST /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/schedule
 ```
 
+<a id="image-cleanup-schedule-create-request"></a>
 #### 요청
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -892,15 +929,16 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/schedule
 }
 ```
 
+<a id="image-cleanup-schedule-create-response"></a>
 #### 응답
 
 이 API는 공통 정보만 응답합니다.
 
 <a id="container-image"></a>
-## 컨테이너 이미지
+## 컨테이너 이미지 { #container-image }
 
 <a id="image-list"></a>
-### 컨테이너 이미지 목록 보기
+### 컨테이너 이미지 목록 보기 { #image-list }
 
 컨테이너 이미지 목록을 조회합니다.
 
@@ -908,6 +946,7 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryId}/retentions/schedule
 GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images
 ```
 
+<a id="image-list-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -919,6 +958,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images
 | page | Query | Integer | X | 조회할 페이지 번호 |
 | page\_size | Query | Integer | X | 조회할 페이지 크기(default: 10) |
 
+<a id="image-list-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -957,7 +997,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images
 ```
 
 <a id="image-get"></a>
-### 컨테이너 이미지 보기
+### 컨테이너 이미지 보기 { #image-get }
 
 컨테이너 이미지를 조회합니다.
 
@@ -965,6 +1005,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images
 GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}
 ```
 
+<a id="image-get-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -975,6 +1016,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}
 | registryName | URL | String | O | 레지스트리 이름 |
 | imageName | URL | String | O | 컨테이너 이미지 이름 |
 
+<a id="image-get-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -1011,7 +1053,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}
 ```
 
 <a id="image-delete"></a>
-### 컨테이너 이미지 삭제하기
+### 컨테이너 이미지 삭제하기 { #image-delete }
 
 컨테이너 이미지를 삭제합니다.
 
@@ -1019,6 +1061,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}
 DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}
 ```
 
+<a id="image-delete-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -1029,12 +1072,13 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}
 | registryName | URL | String | O | 레지스트리 이름 |
 | imageName | URL | String | O | 컨테이너 이미지 이름 |
 
+<a id="image-delete-response"></a>
 #### 응답
 
 이 API는 공통 정보만 응답합니다.
 
 <a id="artifact-list"></a>
-### 아티팩트 목록 보기
+### 아티팩트 목록 보기 { #artifact-list }
 
 아티팩트 목록을 조회합니다.
 
@@ -1042,6 +1086,7 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}
 GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/artifacts
 ```
 
+<a id="artifact-list-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -1056,6 +1101,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/arti
 | with\_scan\_overview | Query | String | X | 취약점 정보 조회 여부 |
 | with\_accessory | Query | String | X | 인증 정보 조회 여부 |
 
+<a id="artifact-list-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -1128,7 +1174,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/arti
 ```
 
 <a id="artifact-get"></a>
-### 아티팩트 보기
+### 아티팩트 보기 { #artifact-get }
 
 아티팩트를 조회합니다.
 
@@ -1136,6 +1182,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/arti
 GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/artifacts/{reference}
 ```
 
+<a id="artifact-get-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -1149,6 +1196,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/arti
 | with\_scan\_overview | Query | String | X | 취약점 정보 조회 여부 |
 | with\_accessory | Query | String | X | 인증 정보 조회 여부 |
 
+<a id="artifact-get-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -1219,7 +1267,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/arti
 ```
 
 <a id="artifact-delete"></a>
-### 아티팩트 삭제하기
+### 아티팩트 삭제하기 { #artifact-delete }
 
 아티팩트를 삭제합니다.
 
@@ -1227,6 +1275,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/arti
 DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/artifacts/{reference}
 ```
 
+<a id="artifact-delete-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -1238,12 +1287,13 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/a
 | imageName | URL | String | O | 컨테이너 이미지 이름 |
 | reference | URL | String | O | 아티팩트 이름 |
 
+<a id="artifact-delete-response"></a>
 #### 응답
 
 이 API는 공통 정보만 응답합니다.
 
 <a id="artifact-tag-list"></a>
-### 아티팩트 태그 목록 보기
+### 아티팩트 태그 목록 보기 { #artifact-tag-list }
 
 아티팩트 태그 목록을 조회합니다.
 
@@ -1251,6 +1301,7 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/a
 GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/artifacts/{reference}/tags
 ```
 
+<a id="artifact-tag-list-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -1264,6 +1315,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/arti
 | page | Query | Integer | X | 조회할 페이지 번호 |
 | page\_size | Query | Integer | X | 조회할 페이지 크기(default: 10) |
 
+<a id="artifact-tag-list-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -1299,7 +1351,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/arti
 ```
 
 <a id="artifact-tag-create"></a>
-### 아티팩트 태그 생성하기
+### 아티팩트 태그 생성하기 { #artifact-tag-create }
 
 아티팩트 태그를 생성합니다.
 
@@ -1307,6 +1359,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/arti
 POST /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/artifacts/{reference}/tags
 ```
 
+<a id="artifact-tag-create-request"></a>
 #### 요청
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -1325,12 +1378,13 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/art
 }
 ```
 
+<a id="artifact-tag-create-response"></a>
 #### 응답
 
 이 API는 공통 정보만 응답합니다.
 
 <a id="artifact-tag-delete"></a>
-### 아티팩트 태그 삭제하기
+### 아티팩트 태그 삭제하기 { #artifact-tag-delete }
 
 아티팩트 태그를 삭제합니다.
 
@@ -1338,6 +1392,7 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/art
 DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/artifacts/{reference}/tags/{tagName}
 ```
 
+<a id="artifact-tag-delete-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -1350,6 +1405,7 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/a
 | reference | URL | String | O | 아티팩트 이름 |
 | tagName | URL | String | O | 아티팩트 태그 이름 |
 
+<a id="artifact-tag-delete-response"></a>
 #### 응답
 
 이 API는 공통 정보만 응답합니다.
