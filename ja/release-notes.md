@@ -121,7 +121,7 @@
 
 * Private URI機能追加
   * インターネットゲートウェイに接続されていないインスタンスでNCRサービスを利用できるPrivate URI機能を追加しました。
-  * 詳細については[Private URI使用ガイド](./user-guide/#private-uri)を参照してください。
+  * 詳細については[Private URI使用ガイド](./user-guide/#use-private-uri)を参照してください。
 
 <a id="july-26-2022"></a>
 ### 2022. 07. 26. { #july-26-2022 }
