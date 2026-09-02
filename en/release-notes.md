@@ -119,7 +119,7 @@
 
 * Added the Private URI feature
   * Added the Private URI feature that allows users to use the NCR service from an instance unconnected with the internet gateway.
-  * For more details, see [Private URI User Guide](./user-guide/#private-uri).
+  * For more details, see [Private URI User Guide](./user-guide/#use-private-uri).
 
 <a id="july-26-2022"></a>
 ### July 26, 2022 { #july-26-2022 }
