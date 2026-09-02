@@ -52,17 +52,16 @@
 <a id="february-27-2024"></a>
 ### 2024. 02. 27. { #february-27-2024 }
 
-<!-- TODO: translate body -->
-
 <a id="february-27-2024-added-features"></a>
 #### 機能追加
 
-<!-- TODO: translate body -->
+* NCR コンソールで発生したイベントを CloudTrail で確認できます。
+* イメージ複製機能に上書きオプションを追加しました。
 
 <a id="february-27-2024-feature-updates"></a>
 #### 機能改善
 
-<!-- TODO: translate body -->
+* イメージのキーワード検索ができるように修正しました。
 
 <a id="november-28-2023"></a>
 ### 2023. 11. 28. { #november-28-2023 }
