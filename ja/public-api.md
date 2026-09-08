@@ -1305,7 +1305,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 | --- | --- | --- | --- | --- |
 | appKey | URL | String | O | サービスAppkey |
-| registryNameOrId | URL | String | O | レジストリ名またはID |
+| registryName | URL | String | O | レジストリ名 |
 | imageName | URL | String | O | コンテナイメージ名 |
 
 <a id="image-get-response"></a>
@@ -1386,7 +1386,7 @@ GET /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}/images/{imageName}/
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 | --- | --- | --- | --- | --- |
 | appKey | URL | String | O | サービスAppkey |
-| registryNameOrId | URL | String | O | レジストリ名またはID |
+| registryName | URL | String | O | レジストリ名 |
 | imageName | URL | String | O | コンテナイメージ名 |
 | page | Query | Integer | X | 照会するページ番号 |
 | page\_size | Query | Integer | X | 照会するページサイズ(default: 10) |
@@ -1578,6 +1578,7 @@ DELETE /ncr/v2.0/appkeys/{appKey}/registries/{registryName}/images/{imageName}/a
 | registryName | URL | String | O | レジストリ名 |
 | imageName | URL | String | O | コンテナイメージ名 |
 | reference | URL | String | O | アーティファクト名 |
+| isDeleteTarget | Query | String | X | 複製対象 NCR で同一のアーティファクトを一緒に削除するかどうか: true/false |
 
 <a id="artifact-delete-response"></a>
 #### レスポンス
@@ -1977,7 +1978,7 @@ GET /ncr/v2.0/appkeys/{appKey}/replications/policies/{policyId}
 | policy.enabled | Body | Boolean | O | 複製が有効かどうか |
 | policy.name | Body | String | O | 複製名 |
 | policy.dest\_project\_id | Body | String | O | 複製対象プロジェクト |
-| policies.override | Body | Boolean | X | 重複イメージを上書きするかどうか |
+| policy.override | Body | Boolean | X | 重複イメージを上書きするかどうか |
 
 例
 
