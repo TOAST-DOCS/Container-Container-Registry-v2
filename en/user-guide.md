@@ -432,7 +432,6 @@ You cannot add duplicate protection policies with the same image and tag to the 
 
 You can delete a image protection policy by selecting a protection policy to delete at the bottom of the **Image Protection** tab and clicking the **Delete Protection Policy** button.
 
-<span id="public-uri"></span>
 <a id="use-public-uri"></a>
 ## Use Public URI { #use-public-uri }
 Public URI is an address that allows for external access to NCR. When creating a registry, you can control access to the registry by setting whether to use a public URI. Public URI allows external systems or services to use images of the registry.
@@ -442,7 +441,6 @@ When Public URI is disabled, the registry is restricted from external access. Th
 > [Note]
 If you disable Public URI, the image stored in the registry will not be accessible from the outside. When changing settings, you must perform sufficient validation and testing before making any changes, as they may affect neighboring systems and services.
 
-<span id="private-uri"></span>
 <a id="use-private-uri"></a>
 ## Use Private URI { #use-private-uri }
 Private URI is an address for NCR that can be used within a VPC network of NHN Cloud. If you want to use the NCR service in an instance disconnected from the external network without having to connect to the internet gateway for enhanced security, you can use the Private URI feature.

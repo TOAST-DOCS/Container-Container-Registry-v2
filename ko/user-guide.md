@@ -432,7 +432,6 @@ Docker 명령줄 도구 없이 NCR Console에서 태그를 생성할 수 있습�
 
 **이미지 보호** 탭 하단에서 삭제할 보호 정책을 선택하고 **보호 정책 삭제** 버튼을 클릭하여 삭제할 수 있습니다.
 
-<span id="public-uri"></span>
 <a id="use-public-uri"></a>
 ## Public URI 사용 { #use-public-uri }
 Public URI는 외부에서 NCR에 접근할 수 있도록 제공하는 주소입니다. 레지스트리를 생성할 때 Public URI 사용 여부를 설정하여 레지스트리에 대한 접근을 제어할 수 있습니다. Public URI를 사용함으로써, 외부 시스템이나 서비스에서 레지스트리의 이미지를 활용할 수 있게 됩니다.
@@ -442,7 +441,6 @@ Public URI를 사용하지 않도록 설정하면 레지스트리는 외부에�
 > [참고]
 > Public URI를 사용하지 않도록 설정하면, 외부에서 레지스트리에 저장된 이미지에 접근할 수 없게 됩니다. 설정을 변경할 때에는 주변 시스템 및 서비스에 영향을 미칠 수 있으므로, 변경 전에 충분한 검증과 테스트를 수행해야 합니다.
 
-<span id="private-uri"></span>
 <a id="use-private-uri"></a>
 ## Private URI 사용 { #use-private-uri }
 Private URI는 NHN Cloud의 VPC 네트워크 내에서 사용할 수 있는 NCR 주소입니다. 보안을 강화하기 위해 인터넷 게이트웨이에 연결하지 않고 외부 네트워크를 단절한 인스턴스에서 NCR 서비스를 사용하고자 할 때 Private URI 기능을 활용할 수 있습니다.
