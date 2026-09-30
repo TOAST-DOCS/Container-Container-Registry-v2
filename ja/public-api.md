@@ -406,13 +406,12 @@ POST /ncr/v2.0/appkeys/{appKey}/registries/{registryNameOrId}/immutabletagrules
 | --- | --- | --- | --- | --- |
 | appKey | URL | String | O | サービスAppkey |
 | registryId | URL | String | O | レジストリID |
-| registryId | URL | String | O | レジストリID |
 | scope | Body | Object | X | イメージに対する保護ポリシー情報 |
 | scope.include | Body | Boolean | X | イメージに対する保護ポリシー設定の有無 |
 | scope.pattern | Body | String | X | 保護対象イメージ<br>全体イメージ対象: \*\* 入力 |
 | tag | Body | Object | X | タグに対する保護ポリシー情報 |
 | tag.include | Body | Boolean | X | タグに対する保護ポリシー設定の有無 |
-| tag.pattern | Body | String | X | 保護対象タグ<br>全体タグ対象：\*\* 入力 |
+| tag.pattern | Body | String | X | 保護対象タグ<br>全体タグ対象: \*\* 入力 |
 
 例
 
