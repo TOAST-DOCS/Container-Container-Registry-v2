@@ -1577,6 +1577,7 @@ This API does not require a request body.
 | registryName | URL | String | O | Registry name |
 | imageName | URL | String | O | Container image name |
 | reference | URL | String | O | Artifact name |
+| isDeleteTarget | Query | String | X | Whether to delete the same artifact from the replication target NCR: true/false |
 
 <a id="artifact-delete-response"></a>
 #### Response
@@ -1860,6 +1861,7 @@ This API does not require a request body.
 | policies.enabled | Body | Boolean | O | Replication activated or not |
 | policies.name | Body | String | O | Replication name |
 | policies.dest\_project\_id | Body | String | O | Project to replicate |
+| policies.override | Body | Boolean | X | Whether to overwrite duplicate images |
 
 Example
 
@@ -1959,23 +1961,23 @@ This API does not require a request body.
 | policy.filters | Body | Object List | O | Setting information to be replicated |
 | policy.filters.type | Body | String | O | Type to be replicated |
 | policy.filters.value | Body | String | O | Filter value to be replicated  |
-| policy.dest_registry | Body | Object | O | Target registry information |
-| policy.dest_registsry.name | Body | String | O | Target region name |
-| policy.dest_registsry.id | Body | Integer | X | If the destination region ID and value exist, perform push replication. |
-| policy.creation_time | Body | String | O | Created time |
-| policy.src_registry | Body | Object | O | Source registry information |
-| policy.src_registry.name | Body | String | O | Source region name |
-| policy.src_registry.id | Body | Integer | X | If the source region ID and value exist, perform push replication. |
+| policy.dest\_registry | Body | Object | O | Target registry information |
+| policy.dest\_registsry.name | Body | String | O | Target region name |
+| policy.dest\_registsry.id | Body | Integer | X | If the destination region ID and value exist, perform push replication. |
+| policy.creation\_time | Body | String | O | Created time |
+| policy.src\_registry | Body | Object | O | Source registry information |
+| policy.src\_registry.name | Body | String | O | Source region name |
+| policy.src\_registry.id | Body | Integer | X | If the source region ID and value exist, perform pull replication. |
 | policy.trigger | Body | Object | O | How replication works |
-| policy.trigger.type | Body | String | O | manual (no setting) / scheduled (user setting) / event_based (event_based) |
-| policy.trigger.trigger_settings | Body | Object | X | It is required to specify the replication cycle when the replication mode is set to scheduled. |
-| policy.trigger.trigger_settings.cron | Body | String | X | Replication cycle (using Unix cron expression) |
-| policy.dest_namespace | Body | String | X | Target registry |
+| policy.trigger.type | Body | String | O | manual (no setting) / scheduled (user setting) / event\_based (event\_based) |
+| policy.trigger.trigger\_settings | Body | Object | X | It is required to specify the replication cycle when the replication mode is set to scheduled. |
+| policy.trigger.trigger\_settings.cron | Body | String | X | Replication cycle (using Unix cron expression) |
+| policy.dest\_namespace | Body | String | X | Target registry |
 | policy.id | Body | Integer | O | Replication ID |
 | policy.enabled | Body | Boolean | O | Replication activated or not |
 | policy.name | Body | String | O | Replication name |
 | policy.dest\_project\_id | Body | String | O | Project to target |
-| policies.override | Body | Boolean | X | Override duplicate image or not |
+| policy.override | Body | Boolean | X | Override duplicate image or not |
 
 Example
 
