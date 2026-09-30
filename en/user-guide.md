@@ -564,6 +564,7 @@ Click **Create Replication** and enter the required information to configure rep
 * **Source Tag Filter**: Enter a tag name or partial name to replicate the specified target. You can specify match/exclude for this filter.
 
 Filter supports the following patterns.
+
 | Pattern | Description | String(Match or not) |
 | --- | --- | --- |
 | * : path/* | Matches any character except the delimiter `/`. | path/hello-world(Y) <br> path/my/hello-world(N) |
