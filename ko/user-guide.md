@@ -82,9 +82,6 @@ Docker 명령줄 도구를 이용해 사용자 레지스트리에 로그인하�
 <a id="use-a-container-registry"></a>
 ## 컨테이너 레지스트리 사용 { #use-a-container-registry }
 
-> [참고]
-> 멤버 권한의 사용자는 컨테이너 이미지 저장, 삭제 기능은 사용할 수 없습니다.
-
 <a id="create-a-user-registry"></a>
 ### 사용자 레지스트리 생성 { #create-a-user-registry }
 
@@ -916,29 +913,31 @@ NCR 서비스 이용 권한은 다음과 같습니다.
 | Project Admin<br>Project Member<br>Service Admin | NHN Container Registry(NCR) 서비스 Create(생성), Read(읽기), Update(갱신), Delete(삭제) |
 | Service Viewer | NHN Container Registry(NCR) 서비스 Read(읽기) |
 | Image Uploader | NHN Container Registry(NCR) 서비스 Read(읽기), 이미지 Create(생성) |
+| Service Permission | NHN Container Registry(NCR) 서비스 Enable(활성화), Disable(비활성화) |
 
 NCR 서비스 이용 권한에 의해 사용할 수 있는 기능은 다음과 같습니다.
 
-| Action | Project Admin<br>Project Member<br>Service Admin | Service Viewer | Image Uploader |
-| --- | --- | --- | --- |
-| 레지스트리 조회 | ✓ | ✓ | ✓ |
-| 레지스트리 생성/삭제 | ✓ |  |  |
-| 레지스트리 복제 목록 조회 | ✓ | ✓ | ✓ |
-| 레지스트리 복제 생성/수정/삭제/실행 | ✓ |  |  |
-| 레지스트리 복제 히스토리 조회 | ✓ | ✓ | ✓ |
-| 이미지 보기 | ✓ | ✓ | ✓ |
-| 이미지 Pull | ✓ | ✓ |  |
-| 이미지 Push | ✓ |  | ✓ |
-| 이미지 삭제 | ✓ |  |  |
-| 아티팩트 보기 | ✓ | ✓ | ✓ |
-| 아티팩트 삭제 | ✓ |  |  |
-| 아티팩트 태그 조회 | ✓ | ✓ | ✓ |
-| 아티팩트 태그 생성/삭제 | ✓ |  |  |
-| 웹훅 조회 | ✓ | ✓ | ✓ |
-| 웹훅 생성/수정/삭제 | ✓ |  |  |
-| 이미지 정리 정책 조회 | ✓ | ✓ | ✓ |
-| 이미지 정리 히스토리 조회 | ✓ | ✓ | ✓ |
-| 이미지 정리 정책 생성/삭제/실행 | ✓ |  |  |
-| 이미지 정리 규칙 활성화/비활성화 | ✓ |  |  |
-| 이미지 보호 정책 조회 | ✓ | ✓ | ✓ |
-| 이미지 보호 정책 추가/삭제 | ✓ |  |  |
+| Action | Project Admin | Project Member<br>Service Admin | Service Viewer | Image Uploader | Service Permission |
+| --- | --- | --- | --- | --- | --- |
+| 서비스 활성화/비활성화 | ✓ |  |  |  | ✓ |
+| 레지스트리 조회 | ✓ | ✓ | ✓ | ✓ |  |
+| 레지스트리 생성/삭제 | ✓ | ✓ |  |  |  |
+| 레지스트리 복제 목록 조회 | ✓ | ✓ | ✓ | ✓ |  |
+| 레지스트리 복제 생성/수정/삭제/실행 | ✓ | ✓ |  |  |  |
+| 레지스트리 복제 히스토리 조회 | ✓ | ✓ | ✓ | ✓ |  |
+| 이미지 보기 | ✓ | ✓ | ✓ | ✓ |  |
+| 이미지 Pull | ✓ | ✓ | ✓ |  |  |
+| 이미지 Push | ✓ | ✓ |  | ✓ |  |
+| 이미지 삭제 | ✓ | ✓ |  |  |  |
+| 아티팩트 보기 | ✓ | ✓ | ✓ | ✓ |  |
+| 아티팩트 삭제 | ✓ | ✓ |  |  |  |
+| 아티팩트 태그 조회 | ✓ | ✓ | ✓ | ✓ |  |
+| 아티팩트 태그 생성/삭제 | ✓ | ✓ |  |  |  |
+| 웹훅 조회 | ✓ | ✓ | ✓ | ✓ |  |
+| 웹훅 생성/수정/삭제 | ✓ | ✓ |  |  |  |
+| 이미지 정리 정책 조회 | ✓ | ✓ | ✓ | ✓ |  |
+| 이미지 정리 히스토리 조회 | ✓ | ✓ | ✓ | ✓ |  |
+| 이미지 정리 정책 생성/삭제/실행 | ✓ | ✓ |  |  |  |
+| 이미지 정리 규칙 활성화/비활성화 | ✓ | ✓ |  |  |  |
+| 이미지 보호 정책 조회 | ✓ | ✓ | ✓ | ✓ |  |
+| 이미지 보호 정책 추가/삭제 | ✓ | ✓ |  |  |  |
