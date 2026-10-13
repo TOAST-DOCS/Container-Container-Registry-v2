@@ -82,9 +82,6 @@ You need User Access Key and Secret Key to log in to your user registry using th
 <a id="use-a-container-registry"></a>
 ## Use a Container Registry { #use-a-container-registry }
 
-> [Note]
-> Users with member privileges cannot use the feature to store and delete container images.
-
 <a id="create-a-user-registry"></a>
 ### Create a User Registry { #create-a-user-registry }
 
@@ -916,29 +913,31 @@ The service permissions of the NCR service are as follows.
 | Project Admin<br>Project Member<br>Service Admin | Create, Read, Update, Delete the NHN Container Registry (NCR) service |
 | Service Viewer | Read the NHN Container Registry (NCR) service |
 | Image Uploader | Read NHN Container Registry(NCR) service, Create images |
+| Service Permission | Enable, Disable the NHN Container Registry (NCR) service |
 
 The features available by the NCR service permissions are as follows.
 
-| Action | Project Admin<br>Project Member<br>Service Admin | Service Viewer | Image Uploader |
-| --- | --- | --- | --- |
-| View registries | ✓ | ✓ | ✓ |
-| Create/Delete registries | ✓ |  |  |
-| View a registry replication list | ✓ | ✓ | ✓ |
-| Create/Modify/Delete/Run registry replications | ✓ |  |  |
-| View a registry replication history | ✓ | ✓ | ✓ |
-| View images | ✓ | ✓ | ✓ |
-| Pull images | ✓ | ✓ |  |
-| Push images | ✓ |  | ✓ |
-| Delete images | ✓ |  |  |
-| View artifacts | ✓ | ✓ | ✓ |
-| Delete artifacts | ✓ |  |  |
-| View artifact tags | ✓ | ✓ | ✓ |
-| Create/Delete artifact tags | ✓ |  |  |
-| View webhook | ✓ | ✓ | ✓ |
-| Create/Modify/Delete webhooks | ✓ |  |  |
-| View image cleanup policy | ✓ | ✓ | ✓ |
-| View image cleanup history | ✓ | ✓ | ✓ |
-| Create/Delete/Run image cleanup policy | ✓ |  |  |
-| Enable/Disable image cleanup rule | ✓ |  |  |
-| View image protection policy | ✓ | ✓ | ✓ |
-| Add/Delete image protection policy | ✓ |  |  |
+| Action | Project Admin | Project Member<br>Service Admin | Service Viewer | Image Uploader | Service Permission |
+| --- | --- | --- | --- | --- | --- |
+| Enable/Disable the service | ✓ |  |  |  | ✓ |
+| View registries | ✓ | ✓ | ✓ | ✓ |  |
+| Create/Delete registries | ✓ | ✓ |  |  |  |
+| View a registry replication list | ✓ | ✓ | ✓ | ✓ |  |
+| Create/Modify/Delete/Run registry replications | ✓ | ✓ |  |  |  |
+| View a registry replication history | ✓ | ✓ | ✓ | ✓ |  |
+| View images | ✓ | ✓ | ✓ | ✓ |  |
+| Pull images | ✓ | ✓ | ✓ |  |  |
+| Push images | ✓ | ✓ |  | ✓ |  |
+| Delete images | ✓ | ✓ |  |  |  |
+| View artifacts | ✓ | ✓ | ✓ | ✓ |  |
+| Delete artifacts | ✓ | ✓ |  |  |  |
+| View artifact tags | ✓ | ✓ | ✓ | ✓ |  |
+| Create/Delete artifact tags | ✓ | ✓ |  |  |  |
+| View webhook | ✓ | ✓ | ✓ | ✓ |  |
+| Create/Modify/Delete webhooks | ✓ | ✓ |  |  |  |
+| View image cleanup policy | ✓ | ✓ | ✓ | ✓ |  |
+| View image cleanup history | ✓ | ✓ | ✓ | ✓ |  |
+| Create/Delete/Run image cleanup policy | ✓ | ✓ |  |  |  |
+| Enable/Disable image cleanup rule | ✓ | ✓ |  |  |  |
+| View image protection policy | ✓ | ✓ | ✓ | ✓ |  |
+| Add/Delete image protection policy | ✓ | ✓ |  |  |  |
