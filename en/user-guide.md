@@ -1,3 +1,5 @@
+<!-- machine_translated: true -->
+
 <!-- pre-align:aligned sig=3643d931a641 -->
 
 <a id="container-nhn-container-registry-ncr-user-guide"></a>
@@ -913,31 +915,31 @@ The service permissions of the NCR service are as follows.
 | Project Admin<br>Project Member<br>Service Admin | Create, Read, Update, Delete the NHN Container Registry (NCR) service |
 | Service Viewer | Read the NHN Container Registry (NCR) service |
 | Image Uploader | Read NHN Container Registry(NCR) service, Create images |
-| Service Permission | Enable, Disable the NHN Container Registry (NCR) service |
+| Service Permission | NHN Container Registry (NCR) service Enable, Disable |
 
 The features available by the NCR service permissions are as follows.
 
 | Action | Project Admin | Project Member<br>Service Admin | Service Viewer | Image Uploader | Service Permission |
 | --- | --- | --- | --- | --- | --- |
-| Enable/Disable the service | ✓ |  |  |  | ✓ |
+| Enable/Disable service | ✓ |  |  |  | ✓ |
 | View registries | ✓ | ✓ | ✓ | ✓ |  |
-| Create/Delete registries | ✓ | ✓ |  |  |  |
+| Create, delete, and view registries | ✓ | ✓ |  |  |  |
 | View a registry replication list | ✓ | ✓ | ✓ | ✓ |  |
 | Create/Modify/Delete/Run registry replications | ✓ | ✓ |  |  |  |
 | View a registry replication history | ✓ | ✓ | ✓ | ✓ |  |
-| View images | ✓ | ✓ | ✓ | ✓ |  |
-| Pull images | ✓ | ✓ | ✓ |  |  |
-| Push images | ✓ | ✓ |  | ✓ |  |
-| Delete images | ✓ | ✓ |  |  |  |
-| View artifacts | ✓ | ✓ | ✓ | ✓ |  |
-| Delete artifacts | ✓ | ✓ |  |  |  |
+| View Image | ✓ | ✓ | ✓ | ✓ |  |
+| Pull image | ✓ | ✓ | ✓ |  |  |
+| Push image | ✓ | ✓ |  | ✓ |  |
+| Delete image | ✓ | ✓ |  |  |  |
+| View Artifact | ✓ | ✓ | ✓ | ✓ |  |
+| Delete artifact | ✓ | ✓ |  |  |  |
 | View artifact tags | ✓ | ✓ | ✓ | ✓ |  |
 | Create/Delete artifact tags | ✓ | ✓ |  |  |  |
-| View webhook | ✓ | ✓ | ✓ | ✓ |  |
+| View webhooks | ✓ | ✓ | ✓ | ✓ |  |
 | Create/Modify/Delete webhooks | ✓ | ✓ |  |  |  |
 | View image cleanup policy | ✓ | ✓ | ✓ | ✓ |  |
 | View image cleanup history | ✓ | ✓ | ✓ | ✓ |  |
 | Create/Delete/Run image cleanup policy | ✓ | ✓ |  |  |  |
 | Enable/Disable image cleanup rule | ✓ | ✓ |  |  |  |
-| View image protection policy | ✓ | ✓ | ✓ | ✓ |  |
+| View Image Protection Policy | ✓ | ✓ | ✓ | ✓ |  |
 | Add/Delete image protection policy | ✓ | ✓ |  |  |  |
